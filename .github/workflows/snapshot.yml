@@ -27,10 +27,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install yfinance
+        run: pip install --upgrade yfinance   # latest release picks up fixes when Yahoo changes
+
       - name: Fetch free data
         timeout-minutes: 4
-        env:
-          STOOQ_APIKEY: ${{ secrets.STOOQ_APIKEY }}
         run: python scripts/fetch_snapshot.py
 
       - name: Save snapshot to the repository
