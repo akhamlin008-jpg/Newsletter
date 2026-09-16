@@ -21,8 +21,10 @@ import json
 import math
 import os
 import sys
+import threading
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
@@ -75,10 +77,14 @@ CRYPTO = [("BTC", "BTC-USD", "PF_XBTUSD", "BTC"), ("ETH", "ETH-USD", "PF_ETHUSD"
 
 REQUEST_TIMEOUT = 8   # seconds per attempt
 TRIES = 2             # one retry, and only for timeouts or server errors
+CUSTOM_UA = "MorningLetterSnapshot/0.2 (personal research project)"
 
 
-def http_get(url, data=None, headers=None):
-    hdrs = {"User-Agent": "MorningLetterSnapshot/0.2 (personal research project)"}
+def http_get(url, data=None, headers=None, custom_ua=True):
+    # custom_ua=False sends urllib's default agent (Python-urllib/3.x).
+    # FRED needs this: from GitHub-hosted runners, requests with a custom
+    # User-Agent have been reported to stall until the read times out.
+    hdrs = {"User-Agent": CUSTOM_UA} if custom_ua else {}
     if headers:
         hdrs.update(headers)
     last_err = None
@@ -111,12 +117,16 @@ def parse_date(s):
     raise ValueError(f"unrecognized date {s!r}")
 
 
+FRED_SLOTS = threading.Semaphore(4)   # don't open 14 connections to FRED at once
+
+
 def fetch_fred(series_id):
     url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={HISTORY_START}"
-    text = http_get(url)
+    with FRED_SLOTS:
+        text = http_get(url, custom_ua=False)
     rows = list(csv.reader(io.StringIO(text)))
     if not rows or len(rows[0]) < 2:
-        raise RuntimeError("unexpected FRED response")
+        raise RuntimeError(f"unexpected FRED response: {snippet(text)}")
     out = []
     for r in rows[1:]:
         if len(r) < 2 or r[1].strip() in ("", "."):
@@ -125,12 +135,29 @@ def fetch_fred(series_id):
     return out
 
 
+def snippet(text, n=100):
+    return repr(" ".join(text.split())[:n])
+
+
 def fetch_stooq(symbol):
-    url = f"https://stooq.com/q/d/l/?s={urllib.request.quote(symbol)}&i=d"
-    text = http_get(url)
+    # Stooq now requires an API key for CSV downloads. Without one it returns
+    # an instructions page (HTTP 200), not CSV.
+    key = os.environ.get("STOOQ_APIKEY", "").strip()
+    if not key:
+        raise RuntimeError("STOOQ_APIKEY not set (Stooq requires an API key)")
+    url = (f"https://stooq.com/q/d/l/?s={urllib.parse.quote(symbol)}&i=d"
+           f"&apikey={urllib.parse.quote(key)}")
+
+    def redact(msg):  # error text is committed to a public repo
+        return msg.replace(key, "[key]").replace(urllib.parse.quote(key), "[key]")
+
+    try:
+        text = http_get(url)
+    except RuntimeError as e:
+        raise RuntimeError(redact(str(e))) from None
     reader = csv.DictReader(io.StringIO(text))
     if not reader.fieldnames or "Close" not in reader.fieldnames:
-        raise RuntimeError("unexpected Stooq response (no Close column)")
+        raise RuntimeError(f"unexpected Stooq response (no Close column): {snippet(redact(text))}")
     out = []
     for r in reader:
         try:
@@ -456,6 +483,9 @@ def main():
     for e in errors:
         print("  error:", e)
 
+    if snap["rows_failed"]:
+        # Shows on the Actions run page; does not change the exit rule below.
+        print(f"::warning::{snap['rows_failed']} of {len(rows)} dashboard rows failed")
     ok_anything = snap["rows_ok"] > 0 or any(c["status"] == "ok" for c in crypto)
     sys.exit(0 if ok_anything else 1)
 
