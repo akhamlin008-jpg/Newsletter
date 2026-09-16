@@ -140,15 +140,17 @@ def snippet(text, n=100):
 
 
 def fetch_stooq(symbol):
-    # Stooq now requires an API key for CSV downloads. Without one it returns
-    # an instructions page (HTTP 200), not CSV.
+    # Since about April 2026 Stooq has returned an API-key instructions page
+    # (HTTP 200) instead of CSV to requests without a key. The key is optional
+    # here so a keyless run still records exactly what Stooq sent back.
     key = os.environ.get("STOOQ_APIKEY", "").strip()
-    if not key:
-        raise RuntimeError("STOOQ_APIKEY not set (Stooq requires an API key)")
-    url = (f"https://stooq.com/q/d/l/?s={urllib.parse.quote(symbol)}&i=d"
-           f"&apikey={urllib.parse.quote(key)}")
+    url = f"https://stooq.com/q/d/l/?s={urllib.parse.quote(symbol)}&i=d"
+    if key:
+        url += f"&apikey={urllib.parse.quote(key)}"
 
     def redact(msg):  # error text is committed to a public repo
+        if not key:
+            return msg
         return msg.replace(key, "[key]").replace(urllib.parse.quote(key), "[key]")
 
     try:
@@ -157,7 +159,8 @@ def fetch_stooq(symbol):
         raise RuntimeError(redact(str(e))) from None
     reader = csv.DictReader(io.StringIO(text))
     if not reader.fieldnames or "Close" not in reader.fieldnames:
-        raise RuntimeError(f"unexpected Stooq response (no Close column): {snippet(redact(text))}")
+        tag = "" if key else " [no STOOQ_APIKEY set]"
+        raise RuntimeError(f"unexpected Stooq response{tag} (no Close column): {snippet(redact(text), 160)}")
     out = []
     for r in reader:
         try:
