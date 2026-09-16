@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-16T04:49:20+00:00",
+  "generated_et": "2026-09-16 00:49 EDT",
+  "parameters": {
+    "ewma_lambda": 0.94,
+    "floor_fraction": 0.5,
+    "floor_window": 252,
+    "z_flag": 2.0
+  },
+  "rows": [
+    {
+      "id": "UST2Y",
+      "label": "US 2-year yield",
+      "group": "rates",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DGS2 -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "UST10Y",
+      "label": "US 10-year yield",
+      "group": "rates",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DGS10 -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "S2S10",
+      "label": "2s10s spread",
+      "group": "rates",
+      "status": "failed",
+      "failed_sources": [
+        "fred:T10Y2Y -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "REAL10Y",
+      "label": "10-year real yield (TIPS)",
+      "group": "rates",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DFII10 -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "BE10Y",
+      "label": "10-year breakeven inflation",
+      "group": "rates",
+      "status": "failed",
+      "failed_sources": [
+        "fred:T10YIE -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "SOFR",
+      "label": "SOFR",
+      "group": "rates",
+      "status": "failed",
+      "failed_sources": [
+        "fred:SOFR -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "USD_BROAD",
+      "label": "Broad trade-weighted dollar",
+      "group": "dollar",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DTWEXBGS -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "USDJPY",
+      "label": "USD/JPY",
+      "group": "dollar",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DEXJPUS -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "EURUSD",
+      "label": "EUR/USD",
+      "group": "dollar",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DEXUSEU -> TimeoutError: The read operation timed out (17.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "SPX",
+      "label": "S&P 500 index",
+      "group": "equity",
+      "status": "failed",
+      "failed_sources": [
+        "fred:SP500 -> TimeoutError: The read operation timed out (17.4s)",
+        "stooq:^spx -> unexpected Stooq response (no Close column) (0.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "NDX",
+      "label": "Nasdaq 100 index",
+      "group": "equity",
+      "status": "failed",
+      "failed_sources": [
+        "fred:NASDAQ100 -> TimeoutError: The read operation timed out (17.4s)",
+        "stooq:^ndx -> unexpected Stooq response (no Close column) (0.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "RUT",
+      "label": "Russell 2000 index",
+      "group": "equity",
+      "status": "failed",
+      "failed_sources": [
+        "stooq:^rut -> unexpected Stooq response (no Close column) (0.6s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "ES",
+      "label": "S&P 500 futures",
+      "group": "equity",
+      "status": "failed",
+      "failed_sources": [
+        "stooq:es.f -> unexpected Stooq response (no Close column) (0.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "NQ",
+      "label": "Nasdaq 100 futures",
+      "group": "equity",
+      "status": "failed",
+      "failed_sources": [
+        "stooq:nq.f -> unexpected Stooq response (no Close column) (0.4s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "VIX",
+      "label": "VIX",
+      "group": "vol",
+      "source": "cboe_vix:VIX",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 17.2,
+      "change": 0.1,
+      "change_unit": "pts",
+      "ewma_sigma": 1.0646,
+      "floor_sigma": 0.774,
+      "z": 0.09,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.3,
+      "failed_sources": [
+        "fred:VIXCLS -> TimeoutError: The read operation timed out (17.1s)"
+      ]
+    },
+    {
+      "id": "WTI",
+      "label": "WTI crude",
+      "group": "commodities",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.2s)",
+        "stooq:cl.f -> unexpected Stooq response (no Close column) (0.5s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "BRENT",
+      "label": "Brent crude",
+      "group": "commodities",
+      "status": "failed",
+      "failed_sources": [
+        "fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.2s)",
+        "stooq:cb.f -> unexpected Stooq response (no Close column) (0.5s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "GOLD",
+      "label": "Gold",
+      "group": "commodities",
+      "status": "failed",
+      "failed_sources": [
+        "stooq:xauusd -> unexpected Stooq response (no Close column) (0.4s)",
+        "stooq:gc.f -> unexpected Stooq response (no Close column) (0.3s)"
+      ],
+      "flag": false
+    },
+    {
+      "id": "COPPER",
+      "label": "Copper",
+      "group": "commodities",
+      "status": "failed",
+      "failed_sources": [
+        "stooq:hg.f -> unexpected Stooq response (no Close column) (0.4s)"
+      ],
+      "flag": false
+    }
+  ],
+  "crypto": [
+    {
+      "id": "BTC",
+      "group": "crypto",
+      "status": "ok",
+      "errors": [],
+      "price": 75847.14,
+      "price_source": "coinbase:BTC-USD",
+      "change_24h_pct": -2.193,
+      "z": -1.04,
+      "flag": false,
+      "note": "z compares a rolling 24h change with daily-close volatility; approximate",
+      "perps": {
+        "kraken": {
+          "symbol": "PF_XBTUSD",
+          "funding_rate_raw": 1.921204325624375,
+          "funding_rate_prediction_raw": 2.22707243830225,
+          "open_interest": 2082.8221,
+          "mark_price": 75857.33568930325,
+          "units_note": "funding field units UNVERIFIED; do not interpret until confirmed",
+          "oi_change_pct_vs_prev_snapshot": null
+        },
+        "hyperliquid": {
+          "funding_rate_raw": "0.0000125",
+          "open_interest": "36042.98712",
+          "mark_price": "75877.2",
+          "units_note": "funding believed to be an hourly fraction; UNVERIFIED",
+          "oi_change_pct_vs_prev_snapshot": null
+        }
+      }
+    },
+    {
+      "id": "ETH",
+      "group": "crypto",
+      "status": "ok",
+      "errors": [],
+      "price": 2403.9,
+      "price_source": "coinbase:ETH-USD",
+      "change_24h_pct": -3.459,
+      "z": -1.16,
+      "flag": false,
+      "note": "z compares a rolling 24h change with daily-close volatility; approximate",
+      "perps": {
+        "kraken": {
+          "symbol": "PF_ETHUSD",
+          "funding_rate_raw": 0.06732031537304087,
+          "funding_rate_prediction_raw": 0.0689778783039992,
+          "open_interest": 31774.828,
+          "mark_price": 2404.36391007504,
+          "units_note": "funding field units UNVERIFIED; do not interpret until confirmed",
+          "oi_change_pct_vs_prev_snapshot": null
+        },
+        "hyperliquid": {
+          "funding_rate_raw": "0.0000092942",
+          "open_interest": "955130.4976000004",
+          "mark_price": "2404.7",
+          "units_note": "funding believed to be an hourly fraction; UNVERIFIED",
+          "oi_change_pct_vs_prev_snapshot": null
+        }
+      }
+    }
+  ],
+  "flag_groups_ranked": [],
+  "rows_ok": 1,
+  "rows_failed": 18,
+  "errors": [
+    "fred:DGS2 -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:DGS10 -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:T10Y2Y -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:DFII10 -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:T10YIE -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:SOFR -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:DTWEXBGS -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:DEXJPUS -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:DEXUSEU -> TimeoutError: The read operation timed out (17.4s)",
+    "fred:SP500 -> TimeoutError: The read operation timed out (17.4s)",
+    "stooq:^spx -> unexpected Stooq response (no Close column) (0.4s)",
+    "fred:NASDAQ100 -> TimeoutError: The read operation timed out (17.4s)",
+    "stooq:^ndx -> unexpected Stooq response (no Close column) (0.4s)",
+    "stooq:^rut -> unexpected Stooq response (no Close column) (0.6s)",
+    "stooq:es.f -> unexpected Stooq response (no Close column) (0.4s)",
+    "stooq:nq.f -> unexpected Stooq response (no Close column) (0.4s)",
+    "fred:VIXCLS -> TimeoutError: The read operation timed out (17.1s)",
+    "fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.2s)",
+    "stooq:cl.f -> unexpected Stooq response (no Close column) (0.5s)",
+    "fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.2s)",
+    "stooq:cb.f -> unexpected Stooq response (no Close column) (0.5s)",
+    "stooq:xauusd -> unexpected Stooq response (no Close column) (0.4s)",
+    "stooq:gc.f -> unexpected Stooq response (no Close column) (0.3s)",
+    "stooq:hg.f -> unexpected Stooq response (no Close column) (0.4s)"
+  ],
+  "fetch_seconds_total": 35.0
+}
