@@ -1,0 +1,43 @@
+name: Morning data snapshot
+
+on:
+  schedule:
+    # GitHub schedules use UTC. Two runs for resilience; the later one refreshes crypto.
+    # 09:45 UTC = 5:45 AM ET (summer) / 4:45 AM ET (winter)
+    # 10:40 UTC = 6:40 AM ET (summer) / 5:40 AM ET (winter)
+    - cron: "45 9 * * 1-5"
+    - cron: "40 10 * * 1-5"
+  workflow_dispatch: {}   # adds a "Run workflow" button for manual runs
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch free data
+        run: python scripts/fetch_snapshot.py
+
+      - name: Save snapshot to the repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
