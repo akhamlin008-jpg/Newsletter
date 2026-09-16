@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-16T14:21:30+00:00",
-  "generated_et": "2026-09-16 10:21 EDT",
+  "generated_utc": "2026-09-16T19:46:21+00:00",
+  "generated_et": "2026-09-16 15:46 EDT",
   "parameters": {
     "ewma_lambda": 0.94,
     "floor_fraction": 0.5,
@@ -13,113 +13,221 @@
       "id": "UST2Y",
       "label": "US 2-year yield",
       "group": "rates",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DGS2 -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:DGS2",
+      "experimental_source": false,
+      "last_date": "2026-09-14",
+      "value": 4.65,
+      "change": 2.0,
+      "change_unit": "bp",
+      "ewma_sigma": 5.6021,
+      "floor_sigma": 2.2432,
+      "z": 0.36,
+      "flag": false,
+      "age_weekdays": 2,
+      "stale": true,
+      "status": "ok",
+      "fetch_seconds": 0.4,
+      "failed_sources": []
     },
     {
       "id": "UST10Y",
       "label": "US 10-year yield",
       "group": "rates",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DGS10 -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:DGS10",
+      "experimental_source": false,
+      "last_date": "2026-09-14",
+      "value": 4.97,
+      "change": 1.0,
+      "change_unit": "bp",
+      "ewma_sigma": 4.585,
+      "floor_sigma": 2.029,
+      "z": 0.22,
+      "flag": false,
+      "age_weekdays": 2,
+      "stale": true,
+      "status": "ok",
+      "fetch_seconds": 0.4,
+      "failed_sources": []
     },
     {
       "id": "S2S10",
       "label": "2s10s spread",
       "group": "rates",
-      "status": "failed",
-      "failed_sources": [
-        "fred:T10Y2Y -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:T10Y2Y",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 0.33,
+      "change": 1.0,
+      "change_unit": "bp",
+      "ewma_sigma": 2.9515,
+      "floor_sigma": 1.3137,
+      "z": 0.34,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.4,
+      "failed_sources": []
     },
     {
       "id": "REAL10Y",
       "label": "10-year real yield (TIPS)",
       "group": "rates",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DFII10 -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:DFII10",
+      "experimental_source": false,
+      "last_date": "2026-09-14",
+      "value": 2.6,
+      "change": 0.0,
+      "change_unit": "bp",
+      "ewma_sigma": 3.8821,
+      "floor_sigma": 1.6415,
+      "z": 0.0,
+      "flag": false,
+      "age_weekdays": 2,
+      "stale": true,
+      "status": "ok",
+      "fetch_seconds": 0.4,
+      "failed_sources": []
     },
     {
       "id": "BE10Y",
       "label": "10-year breakeven inflation",
       "group": "rates",
-      "status": "failed",
-      "failed_sources": [
-        "fred:T10YIE -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:T10YIE",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 2.38,
+      "change": 1.0,
+      "change_unit": "bp",
+      "ewma_sigma": 2.1848,
+      "floor_sigma": 0.9426,
+      "z": 0.46,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.7,
+      "failed_sources": []
     },
     {
       "id": "SOFR",
       "label": "SOFR",
       "group": "rates",
-      "status": "failed",
-      "failed_sources": [
-        "fred:SOFR -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:SOFR",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 3.64,
+      "change": 2.0,
+      "change_unit": "bp",
+      "ewma_sigma": 1.6643,
+      "floor_sigma": 2.2458,
+      "z": 0.89,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.6,
+      "failed_sources": []
     },
     {
       "id": "USD_BROAD",
       "label": "Broad trade-weighted dollar",
       "group": "dollar",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DTWEXBGS -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:DTWEXBGS",
+      "experimental_source": false,
+      "last_date": "2026-09-11",
+      "value": 118.2126,
+      "change": 0.1134,
+      "change_unit": "%",
+      "ewma_sigma": 0.2108,
+      "floor_sigma": 0.1299,
+      "z": 0.54,
+      "flag": false,
+      "age_weekdays": 3,
+      "stale": true,
+      "status": "ok",
+      "fetch_seconds": 0.9,
+      "failed_sources": []
     },
     {
       "id": "USDJPY",
       "label": "USD/JPY",
       "group": "dollar",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DEXJPUS -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:DEXJPUS",
+      "experimental_source": false,
+      "last_date": "2026-09-11",
+      "value": 153.71,
+      "change": -0.2272,
+      "change_unit": "%",
+      "ewma_sigma": 0.7108,
+      "floor_sigma": 0.2663,
+      "z": -0.32,
+      "flag": false,
+      "age_weekdays": 3,
+      "stale": true,
+      "status": "ok",
+      "fetch_seconds": 1.2,
+      "failed_sources": []
     },
     {
       "id": "EURUSD",
       "label": "EUR/USD",
       "group": "dollar",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DEXUSEU -> TimeoutError: The read operation timed out (17.4s)"
-      ],
-      "flag": false
+      "source": "fred:DEXUSEU",
+      "experimental_source": false,
+      "last_date": "2026-09-11",
+      "value": 1.1604,
+      "change": -0.215,
+      "change_unit": "%",
+      "ewma_sigma": 0.2508,
+      "floor_sigma": 0.1711,
+      "z": -0.86,
+      "flag": false,
+      "age_weekdays": 3,
+      "stale": true,
+      "status": "ok",
+      "fetch_seconds": 0.8,
+      "failed_sources": []
     },
     {
       "id": "SPX",
       "label": "S&P 500 index",
       "group": "equity",
-      "status": "failed",
-      "failed_sources": [
-        "fred:SP500 -> TimeoutError: The read operation timed out (17.4s)",
-        "stooq:^spx -> unexpected Stooq response (no Close column) (0.5s)"
-      ],
-      "flag": false
+      "source": "fred:SP500",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 7585.73,
+      "change": -0.4495,
+      "change_unit": "%",
+      "ewma_sigma": 0.6551,
+      "floor_sigma": 0.4044,
+      "z": -0.69,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.9,
+      "failed_sources": []
     },
     {
       "id": "NDX",
       "label": "Nasdaq 100 index",
       "group": "equity",
-      "status": "failed",
-      "failed_sources": [
-        "fred:NASDAQ100 -> TimeoutError: The read operation timed out (17.4s)",
-        "stooq:^ndx -> unexpected Stooq response (no Close column) (0.5s)"
-      ],
-      "flag": false
+      "source": "fred:NASDAQ100",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 28937.84,
+      "change": -0.65,
+      "change_unit": "%",
+      "ewma_sigma": 1.0368,
+      "floor_sigma": 0.6176,
+      "z": -0.63,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.9,
+      "failed_sources": []
     },
     {
       "id": "RUT",
@@ -127,7 +235,7 @@
       "group": "equity",
       "status": "failed",
       "failed_sources": [
-        "stooq:^rut -> unexpected Stooq response (no Close column) (0.8s)"
+        "stooq:^rut -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)"
       ],
       "flag": false
     },
@@ -137,7 +245,7 @@
       "group": "equity",
       "status": "failed",
       "failed_sources": [
-        "stooq:es.f -> unexpected Stooq response (no Close column) (0.6s)"
+        "stooq:es.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)"
       ],
       "flag": false
     },
@@ -147,7 +255,7 @@
       "group": "equity",
       "status": "failed",
       "failed_sources": [
-        "stooq:nq.f -> unexpected Stooq response (no Close column) (0.5s)"
+        "stooq:nq.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)"
       ],
       "flag": false
     },
@@ -155,7 +263,7 @@
       "id": "VIX",
       "label": "VIX",
       "group": "vol",
-      "source": "cboe_vix:VIX",
+      "source": "fred:VIXCLS",
       "experimental_source": false,
       "last_date": "2026-09-15",
       "value": 17.2,
@@ -169,31 +277,47 @@
       "stale": false,
       "status": "ok",
       "fetch_seconds": 0.3,
-      "failed_sources": [
-        "fred:VIXCLS -> TimeoutError: The read operation timed out (17.0s)"
-      ]
+      "failed_sources": []
     },
     {
       "id": "WTI",
       "label": "WTI crude",
       "group": "commodities",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.1s)",
-        "stooq:cl.f -> unexpected Stooq response (no Close column) (0.5s)"
-      ],
-      "flag": false
+      "source": "fred:DCOILWTICO",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 107.02,
+      "change": 4.4913,
+      "change_unit": "%",
+      "ewma_sigma": 2.9743,
+      "floor_sigma": 1.6892,
+      "z": 1.51,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.3,
+      "failed_sources": []
     },
     {
       "id": "BRENT",
       "label": "Brent crude",
       "group": "commodities",
-      "status": "failed",
-      "failed_sources": [
-        "fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.1s)",
-        "stooq:cb.f -> unexpected Stooq response (no Close column) (0.5s)"
-      ],
-      "flag": false
+      "source": "fred:DCOILBRENTEU",
+      "experimental_source": false,
+      "last_date": "2026-09-15",
+      "value": 130.8,
+      "change": 7.8763,
+      "change_unit": "%",
+      "ewma_sigma": 4.1798,
+      "floor_sigma": 1.8795,
+      "z": 1.88,
+      "flag": false,
+      "age_weekdays": 1,
+      "stale": false,
+      "status": "ok",
+      "fetch_seconds": 0.8,
+      "failed_sources": []
     },
     {
       "id": "GOLD",
@@ -201,8 +325,8 @@
       "group": "commodities",
       "status": "failed",
       "failed_sources": [
-        "stooq:xauusd -> unexpected Stooq response (no Close column) (0.5s)",
-        "stooq:gc.f -> unexpected Stooq response (no Close column) (0.5s)"
+        "stooq:xauusd -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.4s)",
+        "stooq:gc.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)"
       ],
       "flag": false
     },
@@ -212,7 +336,7 @@
       "group": "commodities",
       "status": "failed",
       "failed_sources": [
-        "stooq:hg.f -> unexpected Stooq response (no Close column) (0.5s)"
+        "stooq:hg.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.4s)"
       ],
       "flag": false
     }
@@ -223,30 +347,30 @@
       "group": "crypto",
       "status": "ok",
       "errors": [],
-      "price": 75547.68,
+      "price": 75945.73,
       "price_source": "coinbase:BTC-USD",
-      "change_24h_pct": -0.424,
-      "z": -0.2,
+      "change_24h_pct": -0.237,
+      "z": -0.11,
       "flag": false,
       "note": "z compares a rolling 24h change with daily-close volatility; approximate",
       "perps": {
         "kraken": {
           "symbol": "PF_XBTUSD",
-          "funding_rate_raw": 1.0315933397329748,
-          "funding_rate_prediction_raw": 1.39620493587125,
-          "open_interest": 2087.2689,
-          "mark_price": 75611.0282751946,
+          "funding_rate_raw": 2.2862465707505,
+          "funding_rate_prediction_raw": 2.103797605677058,
+          "open_interest": 2206.8356,
+          "mark_price": 76038.3665414967,
           "units_note": "funding field units UNVERIFIED; do not interpret until confirmed",
-          "oi_change_pct_vs_prev_snapshot": 0.21,
-          "prev_snapshot_utc": "2026-09-16T04:49:20+00:00"
+          "oi_change_pct_vs_prev_snapshot": 5.73,
+          "prev_snapshot_utc": "2026-09-16T14:21:30+00:00"
         },
         "hyperliquid": {
           "funding_rate_raw": "0.0000125",
-          "open_interest": "37186.03468",
-          "mark_price": "75614.0",
+          "open_interest": "38636.89402",
+          "mark_price": "76067.0",
           "units_note": "funding believed to be an hourly fraction; UNVERIFIED",
-          "oi_change_pct_vs_prev_snapshot": 3.17,
-          "prev_snapshot_utc": "2026-09-16T04:49:20+00:00"
+          "oi_change_pct_vs_prev_snapshot": 3.9,
+          "prev_snapshot_utc": "2026-09-16T14:21:30+00:00"
         }
       }
     },
@@ -255,62 +379,44 @@
       "group": "crypto",
       "status": "ok",
       "errors": [],
-      "price": 2389.31,
+      "price": 2406.59,
       "price_source": "coinbase:ETH-USD",
-      "change_24h_pct": -0.712,
-      "z": -0.24,
+      "change_24h_pct": -0.34,
+      "z": -0.11,
       "flag": false,
       "note": "z compares a rolling 24h change with daily-close volatility; approximate",
       "perps": {
         "kraken": {
           "symbol": "PF_ETHUSD",
-          "funding_rate_raw": 0.022614760209584132,
-          "funding_rate_prediction_raw": 0.0175228062275,
-          "open_interest": 31566.588,
-          "mark_price": 2389.81973484977,
+          "funding_rate_raw": 0.11271487246066747,
+          "funding_rate_prediction_raw": 0.11724450702025,
+          "open_interest": 34983.184,
+          "mark_price": 2407.79077304075,
           "units_note": "funding field units UNVERIFIED; do not interpret until confirmed",
-          "oi_change_pct_vs_prev_snapshot": -0.66,
-          "prev_snapshot_utc": "2026-09-16T04:49:20+00:00"
+          "oi_change_pct_vs_prev_snapshot": 10.82,
+          "prev_snapshot_utc": "2026-09-16T14:21:30+00:00"
         },
         "hyperliquid": {
-          "funding_rate_raw": "0.0000125",
-          "open_interest": "982280.6186000002",
-          "mark_price": "2390.3",
+          "funding_rate_raw": "0.000001795",
+          "open_interest": "989579.2492",
+          "mark_price": "2408.0",
           "units_note": "funding believed to be an hourly fraction; UNVERIFIED",
-          "oi_change_pct_vs_prev_snapshot": 2.84,
-          "prev_snapshot_utc": "2026-09-16T04:49:20+00:00"
+          "oi_change_pct_vs_prev_snapshot": 0.74,
+          "prev_snapshot_utc": "2026-09-16T14:21:30+00:00"
         }
       }
     }
   ],
   "flag_groups_ranked": [],
-  "rows_ok": 1,
-  "rows_failed": 18,
+  "rows_ok": 14,
+  "rows_failed": 5,
   "errors": [
-    "fred:DGS2 -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:DGS10 -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:T10Y2Y -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:DFII10 -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:T10YIE -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:SOFR -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:DTWEXBGS -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:DEXJPUS -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:DEXUSEU -> TimeoutError: The read operation timed out (17.4s)",
-    "fred:SP500 -> TimeoutError: The read operation timed out (17.4s)",
-    "stooq:^spx -> unexpected Stooq response (no Close column) (0.5s)",
-    "fred:NASDAQ100 -> TimeoutError: The read operation timed out (17.4s)",
-    "stooq:^ndx -> unexpected Stooq response (no Close column) (0.5s)",
-    "stooq:^rut -> unexpected Stooq response (no Close column) (0.8s)",
-    "stooq:es.f -> unexpected Stooq response (no Close column) (0.6s)",
-    "stooq:nq.f -> unexpected Stooq response (no Close column) (0.5s)",
-    "fred:VIXCLS -> TimeoutError: The read operation timed out (17.0s)",
-    "fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.1s)",
-    "stooq:cl.f -> unexpected Stooq response (no Close column) (0.5s)",
-    "fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.1s)",
-    "stooq:cb.f -> unexpected Stooq response (no Close column) (0.5s)",
-    "stooq:xauusd -> unexpected Stooq response (no Close column) (0.5s)",
-    "stooq:gc.f -> unexpected Stooq response (no Close column) (0.5s)",
-    "stooq:hg.f -> unexpected Stooq response (no Close column) (0.5s)"
+    "stooq:^rut -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)",
+    "stooq:es.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)",
+    "stooq:nq.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)",
+    "stooq:xauusd -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.4s)",
+    "stooq:gc.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.5s)",
+    "stooq:hg.f -> unexpected Stooq response [no STOOQ_APIKEY set] (no Close column): '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"robots\" content=\"noindex,nofollow\"></head><body><noscript>This site requires JavaScript to verify y' (0.4s)"
   ],
-  "fetch_seconds_total": 35.0
+  "fetch_seconds_total": 1.5
 }
