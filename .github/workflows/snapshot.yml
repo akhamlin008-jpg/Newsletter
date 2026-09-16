@@ -19,7 +19,7 @@ concurrency:
 jobs:
   snapshot:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -28,6 +28,7 @@ jobs:
           python-version: "3.12"
 
       - name: Fetch free data
+        timeout-minutes: 4
         run: python scripts/fetch_snapshot.py
 
       - name: Save snapshot to the repository
