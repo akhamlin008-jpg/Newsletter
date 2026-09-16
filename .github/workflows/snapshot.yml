@@ -2,11 +2,13 @@ name: Morning data snapshot
 
 on:
   schedule:
-    # GitHub schedules use UTC. Two runs for resilience; the later one refreshes crypto.
+    # GitHub schedules use UTC and can start several minutes late.
     # 09:45 UTC = 5:45 AM ET (summer) / 4:45 AM ET (winter)
     # 10:40 UTC = 6:40 AM ET (summer) / 5:40 AM ET (winter)
+    # 11:30 UTC = 7:30 AM ET (summer) / 6:30 AM ET (winter)
     - cron: "45 9 * * 1-5"
     - cron: "40 10 * * 1-5"
+    - cron: "30 11 * * 1-5"
   workflow_dispatch: {}   # adds a "Run workflow" button for manual runs
 
 permissions:
