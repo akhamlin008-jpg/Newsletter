@@ -22,7 +22,9 @@ import math
 import os
 import sys
 import time
+import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -71,19 +73,28 @@ CRYPTO = [("BTC", "BTC-USD", "PF_XBTUSD", "BTC"), ("ETH", "ETH-USD", "PF_ETHUSD"
 
 # ---------------------------------------------------------------- HTTP
 
-def http_get(url, data=None, headers=None, tries=3):
-    hdrs = {"User-Agent": "MorningLetterSnapshot/0.1 (personal research project)"}
+REQUEST_TIMEOUT = 8   # seconds per attempt
+TRIES = 2             # one retry, and only for timeouts or server errors
+
+
+def http_get(url, data=None, headers=None):
+    hdrs = {"User-Agent": "MorningLetterSnapshot/0.2 (personal research project)"}
     if headers:
         hdrs.update(headers)
     last_err = None
-    for attempt in range(tries):
+    for attempt in range(TRIES):
         try:
             req = urllib.request.Request(url, data=data, headers=hdrs)
-            with urllib.request.urlopen(req, timeout=30) as resp:
+            with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
                 return resp.read().decode("utf-8", errors="replace")
-        except Exception as e:  # noqa: BLE001 - record any failure
+        except urllib.error.HTTPError as e:
             last_err = e
-            time.sleep(2 * (attempt + 1))
+            if 400 <= e.code < 500:  # blocked or not found: retrying won't help
+                break
+        except Exception as e:  # noqa: BLE001 - timeouts, connection errors
+            last_err = e
+        if attempt < TRIES - 1:
+            time.sleep(1)
     raise RuntimeError(f"{type(last_err).__name__}: {last_err}")
 
 
@@ -200,6 +211,7 @@ def weekdays_between(d_from, d_to):
 def build_row(row_id, label, group, kind, sources, today_et):
     errors = []
     for src, sid in sources:
+        t0 = time.monotonic()
         try:
             series = FETCHERS[src](sid)
             if len(series) < 2:
@@ -226,10 +238,11 @@ def build_row(row_id, label, group, kind, sources, today_et):
                 "age_weekdays": age,
                 "stale": age > 1,
                 "status": "ok",
+                "fetch_seconds": round(time.monotonic() - t0, 1),
                 "failed_sources": errors,
             }
         except Exception as e:  # noqa: BLE001
-            errors.append(f"{src}:{sid} -> {e}")
+            errors.append(f"{src}:{sid} -> {e} ({time.monotonic() - t0:.1f}s)")
     return {"id": row_id, "label": label, "group": group, "status": "failed",
             "failed_sources": errors, "flag": False}
 
@@ -269,23 +282,32 @@ def hyperliquid_ctxs():
 
 def build_crypto(previous):
     out, errors = [], []
-    kraken = hyper = None
-    try:
-        kraken = kraken_futures_tickers()
-    except Exception as e:  # noqa: BLE001
-        errors.append(f"kraken_futures -> {e}")
-    try:
-        hyper = hyperliquid_ctxs()
-    except Exception as e:  # noqa: BLE001
-        errors.append(f"hyperliquid -> {e}")
+    def attempt(fn):
+        t0 = time.monotonic()
+        try:
+            return fn(), None
+        except Exception as e:  # noqa: BLE001
+            return None, f"{e} ({time.monotonic() - t0:.1f}s)"
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        fk, fh = pool.submit(attempt, kraken_futures_tickers), pool.submit(attempt, hyperliquid_ctxs)
+        kraken, err_k = fk.result()
+        hyper, err_h = fh.result()
+    if err_k:
+        errors.append(f"kraken_futures -> {err_k}")
+    if err_h:
+        errors.append(f"hyperliquid -> {err_h}")
 
     prev_by_id = {r["id"]: r for r in (previous or {}).get("crypto", []) if "id" in r}
 
     for cid, product, kraken_sym, hl_name in CRYPTO:
         row = {"id": cid, "group": "crypto", "status": "ok", "errors": []}
         try:
-            last, chg24 = coinbase_24h(product)
-            closes = coinbase_daily_closes(product)
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                f24 = pool.submit(coinbase_24h, product)
+                fcl = pool.submit(coinbase_daily_closes, product)
+                last, chg24 = f24.result()
+                closes = fcl.result()
             daily = [c for _, c in changes(closes, "pct")]
             z, ewma, floor = unusual_move_score(daily, chg24)
             row.update({
@@ -390,8 +412,13 @@ def main():
         except (OSError, json.JSONDecodeError):
             previous = None
 
-    rows = [build_row(*r, today_et=now_et.date()) for r in ROWS]
-    crypto, crypto_errors = build_crypto(previous)
+    t_start = time.monotonic()
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        row_futures = [pool.submit(build_row, *r, today_et=now_et.date()) for r in ROWS]
+        crypto_future = pool.submit(build_crypto, previous)
+        rows = [f.result() for f in row_futures]
+        crypto, crypto_errors = crypto_future.result()
+    elapsed = round(time.monotonic() - t_start, 1)
 
     groups = {}
     for r in rows + crypto:
@@ -413,6 +440,7 @@ def main():
         "rows_ok": sum(r["status"] == "ok" for r in rows),
         "rows_failed": sum(r["status"] != "ok" for r in rows),
         "errors": errors,
+        "fetch_seconds_total": elapsed,
     }
 
     with open(latest_path, "w") as f:
@@ -422,6 +450,7 @@ def main():
     with open(os.path.join(DATA_DIR, "latest.md"), "w") as f:
         f.write(to_markdown(snap))
 
+    print(f"fetch time: {elapsed}s")
     print(f"rows ok: {snap['rows_ok']}, rows failed: {snap['rows_failed']}, "
           f"crypto ok: {sum(c['status'] == 'ok' for c in crypto)}")
     for e in errors:
