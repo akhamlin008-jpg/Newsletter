@@ -1,4 +1,4 @@
-# Data snapshot 2026-09-16 00:49 EDT
+# Data snapshot 2026-09-16 10:21 EDT
 
 Machine-generated. Numbers here are the only numbers the letter may use.
 
@@ -17,24 +17,24 @@ Machine-generated. Numbers here are the only numbers the letter may use.
 | EUR/USD | FAILED | | | | | | fred:DEXUSEU -> TimeoutError: The read operation timed out (17.4s) |
 | S&P 500 index | FAILED | | | | | | fred:SP500 -> TimeoutError: The read operation timed out (17.4s); stooq:^spx -> unexpected Stooq response (no Close colu |
 | Nasdaq 100 index | FAILED | | | | | | fred:NASDAQ100 -> TimeoutError: The read operation timed out (17.4s); stooq:^ndx -> unexpected Stooq response (no Close  |
-| Russell 2000 index | FAILED | | | | | | stooq:^rut -> unexpected Stooq response (no Close column) (0.6s) |
-| S&P 500 futures | FAILED | | | | | | stooq:es.f -> unexpected Stooq response (no Close column) (0.4s) |
-| Nasdaq 100 futures | FAILED | | | | | | stooq:nq.f -> unexpected Stooq response (no Close column) (0.4s) |
+| Russell 2000 index | FAILED | | | | | | stooq:^rut -> unexpected Stooq response (no Close column) (0.8s) |
+| S&P 500 futures | FAILED | | | | | | stooq:es.f -> unexpected Stooq response (no Close column) (0.6s) |
+| Nasdaq 100 futures | FAILED | | | | | | stooq:nq.f -> unexpected Stooq response (no Close column) (0.5s) |
 | VIX | 17.200 | 2026-09-15 | +0.10 pts | 0.09 |  |  | cboe_vix:VIX |
-| WTI crude | FAILED | | | | | | fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.2s); stooq:cl.f -> unexpected Stooq response (no Close |
-| Brent crude | FAILED | | | | | | fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.2s); stooq:cb.f -> unexpected Stooq response (no Clo |
-| Gold | FAILED | | | | | | stooq:xauusd -> unexpected Stooq response (no Close column) (0.4s); stooq:gc.f -> unexpected Stooq response (no Close co |
-| Copper | FAILED | | | | | | stooq:hg.f -> unexpected Stooq response (no Close column) (0.4s) |
+| WTI crude | FAILED | | | | | | fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.1s); stooq:cl.f -> unexpected Stooq response (no Close |
+| Brent crude | FAILED | | | | | | fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.1s); stooq:cb.f -> unexpected Stooq response (no Clo |
+| Gold | FAILED | | | | | | stooq:xauusd -> unexpected Stooq response (no Close column) (0.5s); stooq:gc.f -> unexpected Stooq response (no Close co |
+| Copper | FAILED | | | | | | stooq:hg.f -> unexpected Stooq response (no Close column) (0.5s) |
 
 ## Crypto
 
-**BTC**: price 75,847.14, 24h -2.19%, z -1.04
-- kraken: funding (raw, units unverified) 1.921204325624375, OI 2082.8221, OI change vs prior snapshot n/a%
-- hyperliquid: funding (raw, units unverified) 0.0000125, OI 36042.98712, OI change vs prior snapshot n/a%
+**BTC**: price 75,547.68, 24h -0.42%, z -0.20
+- kraken: funding (raw, units unverified) 1.0315933397329748, OI 2087.2689, OI change vs prior snapshot 0.21%
+- hyperliquid: funding (raw, units unverified) 0.0000125, OI 37186.03468, OI change vs prior snapshot 3.17%
 
-**ETH**: price 2,403.90, 24h -3.46%, z -1.16
-- kraken: funding (raw, units unverified) 0.06732031537304087, OI 31774.828, OI change vs prior snapshot n/a%
-- hyperliquid: funding (raw, units unverified) 0.0000092942, OI 955130.4976000004, OI change vs prior snapshot n/a%
+**ETH**: price 2,389.31, 24h -0.71%, z -0.24
+- kraken: funding (raw, units unverified) 0.022614760209584132, OI 31566.588, OI change vs prior snapshot -0.66%
+- hyperliquid: funding (raw, units unverified) 0.0000125, OI 982280.6186000002, OI change vs prior snapshot 2.84%
 
 
 ## Source errors
@@ -49,19 +49,19 @@ Machine-generated. Numbers here are the only numbers the letter may use.
 - fred:DEXJPUS -> TimeoutError: The read operation timed out (17.4s)
 - fred:DEXUSEU -> TimeoutError: The read operation timed out (17.4s)
 - fred:SP500 -> TimeoutError: The read operation timed out (17.4s)
-- stooq:^spx -> unexpected Stooq response (no Close column) (0.4s)
+- stooq:^spx -> unexpected Stooq response (no Close column) (0.5s)
 - fred:NASDAQ100 -> TimeoutError: The read operation timed out (17.4s)
-- stooq:^ndx -> unexpected Stooq response (no Close column) (0.4s)
-- stooq:^rut -> unexpected Stooq response (no Close column) (0.6s)
-- stooq:es.f -> unexpected Stooq response (no Close column) (0.4s)
-- stooq:nq.f -> unexpected Stooq response (no Close column) (0.4s)
-- fred:VIXCLS -> TimeoutError: The read operation timed out (17.1s)
-- fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.2s)
+- stooq:^ndx -> unexpected Stooq response (no Close column) (0.5s)
+- stooq:^rut -> unexpected Stooq response (no Close column) (0.8s)
+- stooq:es.f -> unexpected Stooq response (no Close column) (0.6s)
+- stooq:nq.f -> unexpected Stooq response (no Close column) (0.5s)
+- fred:VIXCLS -> TimeoutError: The read operation timed out (17.0s)
+- fred:DCOILWTICO -> TimeoutError: The read operation timed out (17.1s)
 - stooq:cl.f -> unexpected Stooq response (no Close column) (0.5s)
-- fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.2s)
+- fred:DCOILBRENTEU -> TimeoutError: The read operation timed out (17.1s)
 - stooq:cb.f -> unexpected Stooq response (no Close column) (0.5s)
-- stooq:xauusd -> unexpected Stooq response (no Close column) (0.4s)
-- stooq:gc.f -> unexpected Stooq response (no Close column) (0.3s)
-- stooq:hg.f -> unexpected Stooq response (no Close column) (0.4s)
+- stooq:xauusd -> unexpected Stooq response (no Close column) (0.5s)
+- stooq:gc.f -> unexpected Stooq response (no Close column) (0.5s)
+- stooq:hg.f -> unexpected Stooq response (no Close column) (0.5s)
 
 Stale = more than one weekday old (market holidays not yet accounted for).
