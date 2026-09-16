@@ -54,21 +54,44 @@ ROWS = [
     ("BE10Y", "10-year breakeven inflation", "rates", "bp", [("fred", "T10YIE")]),
     ("SOFR", "SOFR", "rates", "bp", [("fred", "SOFR")]),
     ("USD_BROAD", "Broad trade-weighted dollar", "dollar", "pct", [("fred", "DTWEXBGS")]),
-    ("USDJPY", "USD/JPY", "dollar", "pct", [("fred", "DEXJPUS")]),
-    ("EURUSD", "EUR/USD", "dollar", "pct", [("fred", "DEXUSEU")]),
-    ("SPX", "S&P 500 index", "equity", "pct", [("fred", "SP500"), ("stooq", "^spx")]),
-    ("NDX", "Nasdaq 100 index", "equity", "pct", [("fred", "NASDAQ100"), ("stooq", "^ndx")]),
-    ("RUT", "Russell 2000 index", "equity", "pct", [("stooq", "^rut")]),
-    ("ES", "S&P 500 futures", "equity", "pct", [("stooq", "es.f")]),
-    ("NQ", "Nasdaq 100 futures", "equity", "pct", [("stooq", "nq.f")]),
+    ("DXY", "US dollar index (DXY)", "dollar", "pct", [("yahoo", "DX-Y.NYB")]),
+    ("USDJPY", "USD/JPY", "dollar", "pct", [("yahoo", "JPY=X"), ("fred", "DEXJPUS")]),
+    ("EURUSD", "EUR/USD", "dollar", "pct", [("yahoo", "EURUSD=X"), ("fred", "DEXUSEU")]),
+    ("SPX", "S&P 500 index", "equity", "pct", [("fred", "SP500"), ("yahoo", "^GSPC")]),
+    ("NDX", "Nasdaq 100 index", "equity", "pct", [("fred", "NASDAQ100"), ("yahoo", "^NDX")]),
+    ("RUT", "Russell 2000 index", "equity", "pct", [("yahoo", "^RUT")]),
+    ("ES", "S&P 500 futures", "equity", "pct", [("yahoo", "ES=F")]),
+    ("NQ", "Nasdaq 100 futures", "equity", "pct", [("yahoo", "NQ=F")]),
     ("VIX", "VIX", "vol", "diff", [("fred", "VIXCLS"), ("cboe_vix", "VIX")]),
-    ("WTI", "WTI crude", "commodities", "pct", [("fred", "DCOILWTICO"), ("stooq", "cl.f")]),
-    ("BRENT", "Brent crude", "commodities", "pct", [("fred", "DCOILBRENTEU"), ("stooq", "cb.f")]),
-    ("GOLD", "Gold", "commodities", "pct", [("stooq", "xauusd"), ("stooq", "gc.f")]),
-    ("COPPER", "Copper", "commodities", "pct", [("stooq", "hg.f")]),
+    ("WTI", "WTI crude", "commodities", "pct", [("fred", "DCOILWTICO"), ("yahoo", "CL=F")]),
+    ("BRENT", "Brent crude", "commodities", "pct", [("fred", "DCOILBRENTEU"), ("yahoo", "BZ=F")]),
+    ("GOLD", "Gold", "commodities", "pct", [("yahoo", "GC=F")]),
+    ("COPPER", "Copper", "commodities", "pct", [("yahoo", "HG=F")]),
 ]
 
-EXPERIMENTAL_SOURCES = {"stooq"}
+EXPERIMENTAL_SOURCES = {"yahoo"}   # unofficial endpoint; can break without notice
+
+# Shown next to the source when a fallback is a different series from the row's usual one.
+SERIES_NOTES = {
+    ("yahoo", "CL=F"): "front-month futures, not the FRED spot series",
+    ("yahoo", "BZ=F"): "front-month futures, not the FRED spot series",
+    ("fred", "DEXJPUS"): "FRED fallback: noon NY rate, updated weekly",
+    ("fred", "DEXUSEU"): "FRED fallback: noon NY rate, updated weekly",
+}
+
+# Futures roll check (#1). Yahoo's =F series splice contracts without adjustment,
+# so a contract switch shows up as a one-day jump against the underlying.
+# Each futures row is compared with a reference that has no roll.
+ROLL_REFS = {
+    "ES": [("fred", "SP500"), ("yahoo", "^GSPC")],
+    "NQ": [("fred", "NASDAQ100"), ("yahoo", "^NDX")],
+    "GOLD": [("yahoo", "GLD")],
+    "COPPER": [("yahoo", "CPER")],
+}
+QUARTERLY_ROLL_ROWS = {"ES", "NQ"}   # CME equity index futures: Mar/Jun/Sep/Dec
+ROLL_Z = 4.0          # [TUNE] robust z of (futures change - reference change) that marks a roll
+ROLL_MIN_GAP = 0.25   # [TUNE] percent; smaller gaps are never called a roll
+ROLL_LOOKBACK = 10    # recent observations listed in possible_roll_dates
 
 CRYPTO = [("BTC", "BTC-USD", "PF_XBTUSD", "BTC"), ("ETH", "ETH-USD", "PF_ETHUSD", "ETH")]
 
@@ -139,37 +162,36 @@ def snippet(text, n=100):
     return repr(" ".join(text.split())[:n])
 
 
-def fetch_stooq(symbol):
-    # Since about April 2026 Stooq has returned an API-key instructions page
-    # (HTTP 200) instead of CSV to requests without a key. The key is optional
-    # here so a keyless run still records exactly what Stooq sent back.
-    key = os.environ.get("STOOQ_APIKEY", "").strip()
-    url = f"https://stooq.com/q/d/l/?s={urllib.parse.quote(symbol)}&i=d"
-    if key:
-        url += f"&apikey={urllib.parse.quote(key)}"
+YF_LOCK = threading.Lock()   # one Yahoo request at a time to avoid rate limits
 
-    def redact(msg):  # error text is committed to a public repo
-        if not key:
-            return msg
-        return msg.replace(key, "[key]").replace(urllib.parse.quote(key), "[key]")
 
+def fetch_yahoo(symbol):
+    """Daily closes from Yahoo Finance via yfinance, as [(date, close)].
+
+    For futures (=F), the newest bar during the overnight session is the
+    in-progress session, so its close is the latest traded price.
+    """
     try:
-        text = http_get(url)
-    except RuntimeError as e:
-        raise RuntimeError(redact(str(e))) from None
-    reader = csv.DictReader(io.StringIO(text))
-    if not reader.fieldnames or "Close" not in reader.fieldnames:
-        tag = "" if key else " [no STOOQ_APIKEY set]"
-        raise RuntimeError(f"unexpected Stooq response{tag} (no Close column): {snippet(redact(text), 160)}")
-    out = []
-    for r in reader:
+        import yfinance as yf
+    except ImportError:
+        raise RuntimeError("yfinance not installed (pip install yfinance)") from None
+    with YF_LOCK:
         try:
-            out.append((parse_date(r["Date"]), float(r["Close"])))
-        except (ValueError, KeyError, TypeError):
+            df = yf.Ticker(symbol).history(start=HISTORY_START, interval="1d",
+                                           auto_adjust=False, raise_errors=True)
+        except Exception as e:
+            raise RuntimeError(f"{type(e).__name__}: {str(e)[:150]}") from None
+        time.sleep(0.5)
+    if df is None or df.empty or "Close" not in df.columns:
+        raise RuntimeError("Yahoo returned no data")
+    out = []
+    for ts, close in df["Close"].items():
+        if close is None or math.isnan(close):
             continue
-    out.sort()
-    cutoff = date.fromisoformat(HISTORY_START)
-    return [x for x in out if x[0] >= cutoff]
+        out.append((ts.date(), float(close)))
+    if not out:
+        raise RuntimeError("Yahoo returned no usable closes")
+    return sorted(out)
 
 
 def fetch_cboe_vix(_):
@@ -187,10 +209,35 @@ def fetch_cboe_vix(_):
     return [x for x in out if x[0] >= cutoff]
 
 
-FETCHERS = {"fred": fetch_fred, "stooq": fetch_stooq, "cboe_vix": fetch_cboe_vix}
+FETCHERS = {"fred": fetch_fred, "yahoo": fetch_yahoo, "cboe_vix": fetch_cboe_vix}
 
 
 # ---------------------------------------------------------------- math
+
+_CACHE = {}
+_CACHE_LOCK = threading.Lock()
+
+
+def get_series(src, sid):
+    """Fetch once per run; concurrent callers wait for the first fetch."""
+    with _CACHE_LOCK:
+        entry = _CACHE.get((src, sid))
+        owner = entry is None
+        if owner:
+            entry = _CACHE[(src, sid)] = {"done": threading.Event()}
+    if owner:
+        try:
+            entry["value"] = FETCHERS[src](sid)
+        except Exception as e:  # noqa: BLE001
+            entry["error"] = e
+        finally:
+            entry["done"].set()
+    else:
+        entry["done"].wait()
+    if "error" in entry:
+        raise RuntimeError(str(entry["error"]))
+    return entry["value"]
+
 
 def changes(series, kind):
     out = []
@@ -238,22 +285,120 @@ def weekdays_between(d_from, d_to):
 
 # ---------------------------------------------------------------- rows
 
+def third_friday(y, m):
+    d = date(y, m, 15)
+    return d + timedelta(days=(4 - d.weekday()) % 7)
+
+
+def equity_roll_window(today):
+    """(roll_date, expiry) if today is in a quarterly equity-futures roll window.
+
+    CME's roll date is 8 days before expiry (third Friday). Yahoo's switch date
+    is not documented, so the window runs from the roll date to 3 days after expiry.
+    """
+    for y in (today.year - 1, today.year, today.year + 1):
+        for m in (3, 6, 9, 12):
+            expiry = third_friday(y, m)
+            roll = expiry - timedelta(days=8)
+            if roll <= today <= expiry + timedelta(days=3):
+                return roll, expiry
+    return None
+
+
+def roll_suspects(fut, ref):
+    """Dates where the futures daily % change departs sharply from the reference's.
+
+    Only compares days where both series have the same previous date, so
+    holidays and missing bars don't create false jumps.
+    Returns (suspect_dates, threshold_pct, compared_dates) or None if too little overlap.
+    """
+    ref_pos = {d: i for i, (d, _) in enumerate(ref)}
+    diffs = []
+    for (d0, f0), (d1, f1) in zip(fut, fut[1:]):
+        i0, i1 = ref_pos.get(d0), ref_pos.get(d1)
+        if i0 is None or i1 is None or i1 != i0 + 1 or f0 <= 0 or ref[i0][1] <= 0:
+            continue
+        fchg = (f1 / f0 - 1) * 100
+        rchg = (ref[i1][1] / ref[i0][1] - 1) * 100
+        diffs.append((d1, fchg - rchg))
+    if len(diffs) < MIN_CHANGES:
+        return None
+    vals = sorted(x for _, x in diffs)
+    med = vals[len(vals) // 2]
+    mad = sorted(abs(x - med) for x in vals)[len(vals) // 2]
+    thr = max(ROLL_Z * 1.4826 * mad, ROLL_MIN_GAP)
+    return {d for d, x in diffs if abs(x - med) > thr}, thr, {d for d, _ in diffs}
+
+
+def check_roll(row_id, fut_series, today_et):
+    """Returns (info dict, set of dates to leave out of the volatility history)."""
+    info, exclude = {}, set()
+    last_date = fut_series[-1][0]
+    ref_errors = []
+    result = ref_used = None
+    for src, sid in ROLL_REFS[row_id]:
+        try:
+            result = roll_suspects(fut_series, get_series(src, sid))
+            ref_used = f"{src}:{sid}"
+            if result is not None:
+                break
+        except Exception as e:  # noqa: BLE001
+            ref_errors.append(f"{src}:{sid} -> {e}")
+    if result is None:
+        why = "; ".join(ref_errors) or "too little overlap with reference"
+        info["roll_check"] = f"unavailable ({why})"
+    else:
+        suspects, thr, compared = result
+        exclude = suspects
+        recent = sorted(d for d, _ in fut_series[-ROLL_LOOKBACK:] if d in suspects)
+        info["roll_reference"] = ref_used
+        info["roll_threshold_pct"] = round(thr, 3)
+        info["possible_roll_dates"] = [d.isoformat() for d in recent]
+        if last_date in suspects:
+            info["roll_check"] = "POSSIBLE ROLL on latest change; flag suppressed"
+        elif last_date in compared:
+            info["roll_check"] = "ok"
+        else:
+            info["roll_check"] = "latest change not checkable (reference has no close for that date yet)"
+    if row_id in QUARTERLY_ROLL_ROWS:
+        win = equity_roll_window(today_et)
+        if win:
+            info["roll_window"] = (f"quarterly roll window: roll date {win[0].isoformat()}, "
+                                   f"expiry {win[1].isoformat()}; a jump may be the contract switch")
+    return info, exclude
+
+
 def build_row(row_id, label, group, kind, sources, today_et):
     errors = []
     for src, sid in sources:
         t0 = time.monotonic()
         try:
-            series = FETCHERS[src](sid)
+            series = get_series(src, sid)
             if len(series) < 2:
                 raise RuntimeError("fewer than 2 observations")
             chg = changes(series, kind)
             last_date, last_val = series[-1]
             latest = chg[-1][1] if chg and chg[-1][0] == last_date else None
+
+            extra, exclude = {}, set()
+            if src == "yahoo" and row_id in ROLL_REFS:
+                extra, exclude = check_roll(row_id, series, today_et)
+            if src == "yahoo" and last_date >= today_et:
+                extra["session_note"] = ("in-progress session: value is the latest trade, not a close; "
+                                         "change is vs the prior session; z is approximate "
+                                         "(partial-session move vs full-day volatility)")
+            if (src, sid) in SERIES_NOTES:
+                extra["series_note"] = SERIES_NOTES[(src, sid)]
+
             z = ewma = floor = None
             if latest is not None:
-                z, ewma, floor = unusual_move_score([c for _, c in chg[:-1]], latest)
+                history = [c for d, c in chg[:-1] if d not in exclude]
+                z, ewma, floor = unusual_move_score(history, latest)
+            flag = z is not None and abs(z) >= Z_FLAG
+            if flag and last_date in exclude:
+                flag = False
             age = weekdays_between(last_date, today_et)
-            return {
+            row = {
                 "id": row_id, "label": label, "group": group,
                 "source": f"{src}:{sid}",
                 "experimental_source": src in EXPERIMENTAL_SOURCES,
@@ -264,13 +409,15 @@ def build_row(row_id, label, group, kind, sources, today_et):
                 "ewma_sigma": None if ewma is None else round(ewma, 4),
                 "floor_sigma": None if floor is None else round(floor, 4),
                 "z": None if z is None else round(z, 2),
-                "flag": z is not None and abs(z) >= Z_FLAG,
+                "flag": flag,
                 "age_weekdays": age,
                 "stale": age > 1,
                 "status": "ok",
                 "fetch_seconds": round(time.monotonic() - t0, 1),
                 "failed_sources": errors,
             }
+            row.update(extra)
+            return row
         except Exception as e:  # noqa: BLE001
             errors.append(f"{src}:{sid} -> {e} ({time.monotonic() - t0:.1f}s)")
     return {"id": row_id, "label": label, "group": group, "status": "failed",
@@ -409,8 +556,26 @@ def to_markdown(snap):
             continue
         chg = "n/a" if r["change"] is None else f"{r['change']:+.2f} {r['change_unit']}"
         src = r["source"] + (" (experimental)" if r["experimental_source"] else "")
+        if r.get("series_note"):
+            src += f" [{r['series_note']}]"
+        if r.get("roll_check", "").startswith("POSSIBLE ROLL"):
+            src += " **possible roll**"
         L.append(f"| {r['label']} | {fmt(r['value'], 3)} | {r['last_date']} | {chg} | "
                  f"{fmt(r['z'])} | {'**YES**' if r['flag'] else ''} | {'yes' if r['stale'] else ''} | {src} |")
+    notes = []
+    for r in snap["rows"]:
+        if r["status"] != "ok":
+            continue
+        parts = [r[k] for k in ("session_note", "roll_window") if r.get(k)]
+        if "roll_check" in r:
+            rc = f"roll check: {r['roll_check']}"
+            if r.get("possible_roll_dates"):
+                rc += f" (possible rolls in recent history: {', '.join(r['possible_roll_dates'])})"
+            parts.append(rc)
+        if parts:
+            notes.append(f"- **{r['label']}**: " + "; ".join(parts))
+    if notes:
+        L += ["", "## Row notes", ""] + notes
     L += ["", "## Crypto", ""]
     for c in snap["crypto"]:
         L.append(f"**{c['id']}**: price {fmt(c.get('price'))}, 24h {fmt(c.get('change_24h_pct'))}%, "
