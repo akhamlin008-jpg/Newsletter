@@ -29,6 +29,8 @@ jobs:
 
       - name: Fetch free data
         timeout-minutes: 4
+        env:
+          STOOQ_APIKEY: ${{ secrets.STOOQ_APIKEY }}
         run: python scripts/fetch_snapshot.py
 
       - name: Save snapshot to the repository
