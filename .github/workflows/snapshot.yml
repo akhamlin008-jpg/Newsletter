@@ -2,14 +2,14 @@ name: Morning data snapshot
 
 on:
   schedule:
-    # GitHub schedules use UTC and can start several minutes late.
-    # 09:45 UTC = 5:45 AM ET (summer) / 4:45 AM ET (winter)
-    # 10:40 UTC = 6:40 AM ET (summer) / 5:40 AM ET (winter)
-    # 11:30 UTC = 7:30 AM ET (summer) / 6:30 AM ET (winter)
-    - cron: "45 9 * * 1-5"
-    - cron: "40 10 * * 1-5"
-    - cron: "30 11 * * 1-5"
-  workflow_dispatch: {}   # adds a "Run workflow" button for manual runs
+    # GitHub schedules use UTC and ignore daylight saving time, so there is one
+    # entry for each season. The "Check New York time" step below skips whichever
+    # entry doesn't match the current season, so exactly one run happens per day.
+    # Target start: 6:20 AM New York time, leaving about 25 minutes of slack for
+    # GitHub's start delays before the 6:45 AM drafting task reads the data.
+    - cron: "20 10 * * 1-5"   # 6:20 AM when New York is on EDT (summer)
+    - cron: "20 11 * * 1-5"   # 6:20 AM when New York is on EST (winter)
+  workflow_dispatch: {}       # manual runs always go ahead
 
 permissions:
   contents: write
@@ -23,20 +23,38 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Check New York time
+        id: gate
+        env:
+          FIRED_CRON: ${{ github.event.schedule }}
+        run: |
+          zone=$(TZ=America/New_York date +%Z)   # EDT or EST
+          go=false
+          if [ "${{ github.event_name }}" != "schedule" ]; then go=true; fi
+          if [ "$FIRED_CRON" = "20 10 * * 1-5" ] && [ "$zone" = "EDT" ]; then go=true; fi
+          if [ "$FIRED_CRON" = "20 11 * * 1-5" ] && [ "$zone" = "EST" ]; then go=true; fi
+          echo "New York zone: $zone, schedule: ${FIRED_CRON:-manual}, run: $go"
+          echo "go=$go" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
 
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == 'true'
         with:
           python-version: "3.12"
 
       - name: Install yfinance
+        if: steps.gate.outputs.go == 'true'
         run: pip install --upgrade yfinance   # latest release picks up fixes when Yahoo changes
 
       - name: Fetch free data
+        if: steps.gate.outputs.go == 'true'
         timeout-minutes: 4
         run: python scripts/fetch_snapshot.py
 
       - name: Save snapshot to the repository
+        if: steps.gate.outputs.go == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
