@@ -2,9 +2,14 @@ name: Morning data snapshot
 
 on:
   schedule:
-    # 6:00 AM New York time, weekdays. The timezone field handles daylight
-    # saving time. GitHub can still start scheduled runs late when busy.
-    - cron: "00 6 * * 1-5"
+    # Three tries, weekdays, New York time. GitHub's free scheduler can start
+    # runs late or skip them, and the top of the hour is its busiest time, so
+    # these avoid :00. The letter uses whichever snapshot is newest.
+    - cron: "47 4 * * 1-5"
+      timezone: "America/New_York"
+    - cron: "17 5 * * 1-5"
+      timezone: "America/New_York"
+    - cron: "47 5 * * 1-5"
       timezone: "America/New_York"
   workflow_dispatch: {}       # "Run workflow" button for manual runs
 
