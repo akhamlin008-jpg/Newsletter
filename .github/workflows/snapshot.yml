@@ -2,14 +2,13 @@ name: Morning data snapshot
 
 on:
   schedule:
-    # Three tries, weekdays, New York time. GitHub's free scheduler can start
-    # runs late or skip them, and the top of the hour is its busiest time, so
-    # these avoid :00. The letter uses whichever snapshot is newest.
-    - cron: "47 4 * * 1-5"
+    # 15 tries, weekdays, New York time: every 15 minutes from 3:07 to 6:37 AM.
+    # GitHub's free scheduler can start runs late or skip them, and the top of
+    # the hour is its busiest time, so these avoid :00. Later runs refresh the
+    # data; a worse result never replaces a better one from the same day.
+    - cron: "7,22,37,52 3-5 * * 1-5"
       timezone: "America/New_York"
-    - cron: "17 5 * * 1-5"
-      timezone: "America/New_York"
-    - cron: "47 5 * * 1-5"
+    - cron: "7,22,37 6 * * 1-5"
       timezone: "America/New_York"
   workflow_dispatch: {}       # "Run workflow" button for manual runs
 
@@ -42,6 +41,34 @@ jobs:
         if: always()          # runs even if a market source failed
         timeout-minutes: 3
         run: python scripts/sentry_brief.py
+
+      - name: Keep the better snapshot
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, subprocess, sys
+          def ok(d):
+              v = d.get("rows_ok", 0)
+              return len(v) if isinstance(v, list) else int(v or 0)
+          try:
+              old = json.loads(subprocess.check_output(["git", "show", "HEAD:data/latest.json"]))
+              new = json.load(open("data/latest.json"))
+          except Exception as e:
+              print("No comparison possible:", e)
+              sys.exit(0)
+          same_day = str(old.get("generated_et", ""))[:10] == str(new.get("generated_et", ""))[:10]
+          if same_day and ok(new) < ok(old):
+              print(f"New snapshot is worse ({ok(new)} vs {ok(old)} rows ok); keeping the earlier one.")
+              open(".keep_old", "w").write("1")
+          else:
+              print(f"Using the new snapshot ({ok(new)} rows ok).")
+          PY
+          if [ -f .keep_old ]; then
+            git checkout -- data/latest.json data/latest.md
+            git checkout -- data/snapshots 2>/dev/null || true
+            git clean -fdq data/snapshots
+            rm .keep_old
+          fi
 
       - name: Save snapshot to the repository
         if: always()
