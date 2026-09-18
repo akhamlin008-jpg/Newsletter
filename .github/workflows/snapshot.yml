@@ -1,29 +1,57 @@
 name: Morning data snapshot
 
+# GitHub's scheduler is best-effort: runs get delayed at busy times and dropped
+# under load. Yesterday and today, only one of ~15 scheduled attempts fired.
+# So this asks the scheduler for ONE early start and then takes every snapshot
+# from inside that single job, where the timing is ours. Extra start times are
+# listed only so that a dropped start still leaves a later one.
+
 on:
   schedule:
-    # 15 tries, weekdays, New York time: every 15 minutes from 3:07 to 6:37 AM.
-    # GitHub's free scheduler can start runs late or skip them, and the top of
-    # the hour is its busiest time, so these avoid :00. Later runs refresh the
-    # data; a worse result never replaces a better one from the same day.
-    - cron: "7,22,37,52 3-5 * * 1-5"
+    - cron: "7 3 * * 1-5"       # first choice
       timezone: "America/New_York"
-    - cron: "7,22,37 6 * * 1-5"
+    - cron: "38 3 * * 1-5"      # backup if the first is dropped
       timezone: "America/New_York"
-  workflow_dispatch: {}       # "Run workflow" button for manual runs
+    - cron: "9 4 * * 1-5"       # last backup
+      timezone: "America/New_York"
+  workflow_dispatch:
+    inputs:
+      slots:
+        description: "Snapshot times (New York), space-separated. Empty = one snapshot now."
+        required: false
+        default: ""
 
 permissions:
   contents: write
-
-concurrency:
-  group: snapshot
-  cancel-in-progress: false
+  actions: read
 
 jobs:
   snapshot:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 300          # job limit is 6 h; this window is under 4 h
+    env:
+      SLOTS: ${{ inputs.slots || '04:30 05:15 05:45 06:15 06:35' }}
+      LATE_TOLERANCE_MIN: 15      # a slot this far past still runs; older is skipped
+      MIN_SNAPSHOTS: 3            # fewer than this fails the job so GitHub emails you
     steps:
+      # A dropped start means a backup start fires. If the earlier job is still
+      # running, this one exits instead of duplicating its work.
+      - name: Stand down if an earlier run is already working
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mine=${{ github.run_id }}
+          others=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow "${{ github.workflow }}" \
+                     --status in_progress --json databaseId --jq '.[].databaseId' || echo "")
+          for id in $others; do
+            if [ "$id" -lt "$mine" ]; then
+              echo "Run $id started earlier and is still going. Exiting."
+              exit 1
+            fi
+          done
+          echo "No earlier run in progress."
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
@@ -31,54 +59,61 @@ jobs:
           python-version: "3.12"
 
       - name: Install yfinance
-        run: pip install --upgrade yfinance   # latest release picks up fixes when Yahoo changes
+        run: pip install --upgrade yfinance
 
-      - name: Fetch free data
-        timeout-minutes: 4
-        run: python scripts/fetch_snapshot.py
-
-      - name: Build Sentry brief
-        if: always()          # runs even if a market source failed
-        timeout-minutes: 3
-        run: python scripts/sentry_brief.py
-
-      - name: Keep the better snapshot
-        if: always()
+      - name: Take snapshots through the morning
         run: |
-          python - <<'PY'
-          import json, subprocess, sys
-          def ok(d):
-              v = d.get("rows_ok", 0)
-              return len(v) if isinstance(v, list) else int(v or 0)
-          try:
-              old = json.loads(subprocess.check_output(["git", "show", "HEAD:data/latest.json"]))
-              new = json.load(open("data/latest.json"))
-          except Exception as e:
-              print("No comparison possible:", e)
-              sys.exit(0)
-          same_day = str(old.get("generated_et", ""))[:10] == str(new.get("generated_et", ""))[:10]
-          if same_day and ok(new) < ok(old):
-              print(f"New snapshot is worse ({ok(new)} vs {ok(old)} rows ok); keeping the earlier one.")
-              open(".keep_old", "w").write("1")
-          else:
-              print(f"Using the new snapshot ({ok(new)} rows ok).")
-          PY
-          if [ -f .keep_old ]; then
-            git checkout -- data/latest.json data/latest.md
-            git checkout -- data/snapshots 2>/dev/null || true
-            git clean -fdq data/snapshots
-            rm .keep_old
-          fi
-
-      - name: Save snapshot to the repository
-        if: always()
-        run: |
+          set -u
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+          taken=0; failed=0
+          echo "Started $(TZ=America/New_York date '+%F %H:%M %Z'). Slots: $SLOTS"
+
+          for t in $SLOTS; do
+            if [ -n "$t" ]; then
+              today=$(TZ=America/New_York date +%F)
+              target=$(TZ=America/New_York date -d "$today $t" +%s)
+              wait=$(( target - $(date +%s) ))
+              if [ "$wait" -gt 0 ]; then
+                echo "Waiting ${wait}s for $t ET"
+                sleep "$wait"
+              elif [ "$wait" -lt "-$(( LATE_TOLERANCE_MIN * 60 ))" ] && [ "$taken" -gt 0 ]; then
+                echo "Skipping $t ET: more than ${LATE_TOLERANCE_MIN} min past."
+                continue
+              else
+                echo "Running $t ET immediately (start was late)."
+              fi
+            fi
+
+            stamp=$(TZ=America/New_York date '+%F %H:%M %Z')
+            echo "::group::Snapshot $stamp"
+            if timeout 300 python scripts/fetch_snapshot.py; then
+              taken=$(( taken + 1 ))
+              cp data/latest.md "data/snapshots/$(TZ=America/New_York date +%F).md"
+              git add data
+              if git diff --cached --quiet; then
+                echo "Nothing changed."
+              else
+                git commit -q -m "Snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+                git push -q || { git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q; }
+                echo "Committed."
+              fi
+            else
+              failed=$(( failed + 1 ))
+              echo "::warning::Snapshot at $stamp failed."
+            fi
+            echo "::endgroup::"
+          done
+
+          echo "Snapshots taken: $taken, failed: $failed"
+          echo "SNAPSHOTS_TAKEN=$taken" >> "$GITHUB_ENV"
+
+      # A silent miss is the failure mode that hurts, so make it loud: a failed
+      # job sends GitHub's normal failure email.
+      - name: Fail if the morning came up short
+        run: |
+          if [ "${SNAPSHOTS_TAKEN:-0}" -lt "$MIN_SNAPSHOTS" ]; then
+            echo "::error::Only ${SNAPSHOTS_TAKEN:-0} snapshots, expected at least $MIN_SNAPSHOTS."
+            exit 1
           fi
+          echo "Morning complete: ${SNAPSHOTS_TAKEN} snapshots."
