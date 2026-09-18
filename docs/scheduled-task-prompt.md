@@ -8,19 +8,45 @@ in the output instead of asking.
 
 ## 1. Load the inputs
 
-Fetch these three files:
-- https://raw.githubusercontent.com/akhamlin008-jpg/Newsletter/main/docs/charter.md
-- https://raw.githubusercontent.com/akhamlin008-jpg/Newsletter/main/data/latest.json
-- https://raw.githubusercontent.com/akhamlin008-jpg/Newsletter/main/data/latest.md
+Raw file URLs on the `main` branch are served from a cache and can return an
+older copy of a file that has just changed. Commit-pinned URLs cannot. So:
+
+1. Fetch https://api.github.com/repos/akhamlin008-jpg/Newsletter/commits/main
+   and read the commit's `sha`.
+2. Using that sha in place of `main`, fetch:
+   - https://raw.githubusercontent.com/akhamlin008-jpg/Newsletter/SHA/docs/charter.md
+   - https://raw.githubusercontent.com/akhamlin008-jpg/Newsletter/SHA/data/latest.json
+   - https://raw.githubusercontent.com/akhamlin008-jpg/Newsletter/SHA/data/latest.md
+
+If the API call fails, fall back to today's dated copy, which is written once
+per run under a URL that is unique to the day and so is never served stale:
+   - https://raw.githubusercontent.com/akhamlin008-jpg/Newsletter/main/data/snapshots/YYYY-MM-DD.md
+
+State in the letter which of the two routes was used.
 
 ## 2. Check the snapshot
 
-The snapshot is usable only if `generated_et` is today's date and the time is
-after 6:00 AM Eastern.
-- If it is not usable, or cannot be fetched, write a DEGRADED MODE output
-  (charter Section 2.5): the headline "PRODUCTION FAILURE: no idea today," the
-  reason, and today's calendar from step 3. Do not use numbers from memory or
-  from web search as dashboard values. Stop after that.
+The snapshot counts as FRESH if `generated_et` is today's date in New York and
+is less than 2 hours older than the current time. Do not use a fixed clock time
+as the test: the snapshot job starts at 4:30 AM, so a 4:30 or 5:45 snapshot is
+correct and current, not stale.
+
+Three cases, and only the first two change the letter's content:
+
+- FRESH: write the letter in full.
+- TODAY BUT OVER 2 HOURS OLD: write the letter in full, but say in one line at
+  the top of the dashboard how old the snapshot is, and do not treat its flags
+  as this morning's news.
+- NOT TODAY, or could not be fetched: no idea today. Use the DEGRADED MODE
+  headline from charter Section 2.5, "PRODUCTION FAILURE: no idea today," state
+  the reason, and continue with the calendar from step 3.
+
+In all three cases, Section F (the dashboard) is printed, never omitted. The
+dashboard's own header carries the snapshot's date and time, and every row
+already carries its own status, so an old table is honestly labeled rather than
+withheld. What a failed freshness test withholds is the trade idea and the
+flagged-group commentary, not the table. Never substitute numbers from memory
+or from a web search for the snapshot's values.
 
 ## 3. Calendar and overnight news
 
@@ -46,8 +72,11 @@ Maximum 500 words, excluding the dashboard table. Sections, in order:
 4. Event map: event, time (ET), consensus, surprise threshold, expected
    reaction with a probability bucket (15/25/35/45/55/65/75/85%). Mark any
    listed event after 7:00 AM ET as "flash due."
-5. Dashboard: copy the table from latest.md. Write commentary only for the
-   groups in `flag_groups_ranked`. Label stale or lagged rows.
+5. Dashboard: copy the table from latest.md in full, under the heading
+   "F - Dashboard", with the snapshot's own date and time above it. This
+   section is always present. Write commentary on the groups in
+   `flag_groups_ranked` only when the snapshot is FRESH; when it is not, say
+   so in one line instead of commenting.
 
 Every number in the letter must come from the snapshot or from a named,
 dated search result. Mark anything not confirmed with [VERIFY].
