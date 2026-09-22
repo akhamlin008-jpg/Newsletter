@@ -8,18 +8,10 @@ name: Morning data snapshot
 
 on:
   schedule:
-    - cron: "7 3 * * 1-5"       # first choice
-      timezone: "America/New_York"
-    - cron: "38 3 * * 1-5"      # backup if the first is dropped
-      timezone: "America/New_York"
-    - cron: "9 4 * * 1-5"       # last backup
-      timezone: "America/New_York"
-  workflow_dispatch:
-    inputs:
-      slots:
-        description: "Snapshot times (New York), space-separated. Empty = one snapshot now."
-        required: false
-        default: ""
+    # 5:30 AM New York time (UTC-4 / EDT) on weekdays = 09:30 UTC,
+    # leaving time for a slow refresh and GitHub start delays before the 6:45 AM letter.
+    - cron: "30 9 * * 1-5"
+  workflow_dispatch: {}   # manual "Run workflow" button
 
 permissions:
   contents: write
