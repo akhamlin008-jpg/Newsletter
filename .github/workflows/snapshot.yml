@@ -8,10 +8,15 @@ name: Morning data snapshot
 
 on:
   schedule:
-    # 5:30 AM New York time (UTC-4 / EDT) on weekdays = 09:30 UTC,
-    # leaving time for a slow refresh and GitHub start delays before the 6:45 AM letter.
-    - cron: "30 9 * * 1-5"
-  workflow_dispatch: {}   # manual "Run workflow" button
+    - cron: "7 7 * * 1-5"       # first choice — 03:07 fixed UTC-4
+    - cron: "38 7 * * 1-5"      # backup if the first is dropped — 03:38 fixed UTC-4
+    - cron: "9 8 * * 1-5"       # last backup — 04:09 fixed UTC-4
+  workflow_dispatch:
+    inputs:
+      slots:
+        description: "Snapshot times (New York), space-separated. Empty = one snapshot now, then done."
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -22,13 +27,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 300          # job limit is 6 h; this window is under 4 h
     env:
-      SLOTS: ${{ inputs.slots || '04:30 05:15 05:45 06:15 06:35' }}
-      LATE_TOLERANCE_MIN: 15      # a slot this far past still runs; older is skipped
-      MIN_SNAPSHOTS: 3            # fewer than this fails the job so GitHub emails you
+      # Scheduled runs take the morning's list. A manual run with the box left
+      # empty takes one snapshot straight away and stops.
+      SLOTS: ${{ github.event.inputs.slots || (github.event_name == 'schedule' && '04:30 05:15 05:45 06:15 06:35' || 'now') }}
+      LATE_TOLERANCE_MIN: "15"      # a slot this far past still runs; older is skipped
+      MIN_SNAPSHOTS: "3"            # fewer than this fails the job so GitHub emails you
     steps:
       # A dropped start means a backup start fires. If the earlier job is still
       # running, this one exits instead of duplicating its work.
       - name: Stand down if an earlier run is already working
+        id: guard
         if: github.event_name == 'schedule'
         env:
           GH_TOKEN: ${{ github.token }}
@@ -38,22 +46,28 @@ jobs:
                      --status in_progress --json databaseId --jq '.[].databaseId' || echo "")
           for id in $others; do
             if [ "$id" -lt "$mine" ]; then
-              echo "Run $id started earlier and is still going. Exiting."
-              exit 1
+              echo "Run $id started earlier and is still going. Standing down."
+              echo "go=false" >> "$GITHUB_OUTPUT"   # exit 0: a duplicate start is not a failure
+              exit 0
             fi
           done
           echo "No earlier run in progress."
+          echo "go=true" >> "$GITHUB_OUTPUT"
 
       - uses: actions/checkout@v4
+        if: steps.guard.outputs.go != 'false'
 
       - uses: actions/setup-python@v5
+        if: steps.guard.outputs.go != 'false'
         with:
           python-version: "3.12"
 
       - name: Install yfinance
+        if: steps.guard.outputs.go != 'false'
         run: pip install --upgrade yfinance
 
       - name: Take snapshots through the morning
+        if: steps.guard.outputs.go != 'false'
         run: |
           set -u
           git config user.name "github-actions[bot]"
@@ -62,7 +76,7 @@ jobs:
           echo "Started $(TZ=America/New_York date '+%F %H:%M %Z'). Slots: $SLOTS"
 
           for t in $SLOTS; do
-            if [ -n "$t" ]; then
+            if [ "$t" != "now" ]; then
               today=$(TZ=America/New_York date +%F)
               target=$(TZ=America/New_York date -d "$today $t" +%s)
               wait=$(( target - $(date +%s) ))
@@ -81,7 +95,40 @@ jobs:
             echo "::group::Snapshot $stamp"
             if timeout 300 python scripts/fetch_snapshot.py; then
               taken=$(( taken + 1 ))
-              cp data/latest.md "data/snapshots/$(TZ=America/New_York date +%F).md"
+
+              # Sentry brief: runs even if a market source failed.
+              timeout 180 python scripts/sentry_brief.py || \
+                echo "::warning::sentry_brief.py failed at $stamp."
+
+              # Retention: a worse snapshot never replaces a better one from the
+              # same day. Compares against the copy already committed.
+              python - <<'PY'
+          import json, subprocess, sys
+          def ok(d):
+              v = d.get("rows_ok", 0)
+              return len(v) if isinstance(v, list) else int(v or 0)
+          try:
+              old = json.loads(subprocess.check_output(["git", "show", "HEAD:data/latest.json"]))
+              new = json.load(open("data/latest.json"))
+          except Exception as e:
+              print("No comparison possible:", e)
+              sys.exit(0)
+          same_day = str(old.get("generated_et", ""))[:10] == str(new.get("generated_et", ""))[:10]
+          if same_day and ok(new) < ok(old):
+              print(f"New snapshot is worse ({ok(new)} vs {ok(old)} rows ok); keeping the earlier one.")
+              open(".keep_old", "w").write("1")
+          else:
+              print(f"Using the new snapshot ({ok(new)} rows ok).")
+          PY
+              if [ -f .keep_old ]; then
+                git checkout -- data/latest.json data/latest.md
+                git checkout -- data/snapshots 2>/dev/null || true
+                git clean -fdq data/snapshots
+                rm .keep_old
+              else
+                cp data/latest.md "data/snapshots/$(TZ=America/New_York date +%F).md"
+              fi
+
               git add data
               if git diff --cached --quiet; then
                 echo "Nothing changed."
@@ -103,6 +150,7 @@ jobs:
       # A silent miss is the failure mode that hurts, so make it loud: a failed
       # job sends GitHub's normal failure email.
       - name: Fail if the morning came up short
+        if: github.event_name == 'schedule' && steps.guard.outputs.go != 'false'
         run: |
           if [ "${SNAPSHOTS_TAKEN:-0}" -lt "$MIN_SNAPSHOTS" ]; then
             echo "::error::Only ${SNAPSHOTS_TAKEN:-0} snapshots, expected at least $MIN_SNAPSHOTS."
