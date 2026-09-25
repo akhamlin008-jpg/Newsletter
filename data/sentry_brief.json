@@ -1,9 +1,9 @@
 {
- "generated_utc": "2026-09-25T12:43+00:00",
+ "generated_utc": "2026-09-25T12:57+00:00",
  "errors": {},
  "sentry": {
   "as_of": "2026-09-24T15:52",
-  "hours_old": 20.9,
+  "hours_old": 21.1,
   "names": 503,
   "stale_prices": 3,
   "top20_composite": [
@@ -1102,7 +1102,7 @@
  },
  "arbitrage": {
   "as_of": "2026-09-24T15:52:30+00:00",
-  "hours_old": 20.9,
+  "hours_old": 21.1,
   "top_pair_dislocations": [
    {
     "a": "PCG",
