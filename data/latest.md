@@ -1,36 +1,36 @@
-# Data snapshot 2026-09-29 09:59 EDT
+# Data snapshot 2026-09-29 10:18 EDT
 
 Machine-generated. Numbers here are the only numbers the letter may use.
 
-**Flagged groups (top two get commentary):** commodities (max |z| 2.95)
+**Flagged groups (top two get commentary):** commodities (max |z| 2.9)
 
 Status: LIVE = a trade within the last 60 min (free feeds are typically ~10-15 min delayed). Anything else is labeled with the date it refers to.
 
 | Row | Value | Data time (ET) | Status | Change vs prior close | z | Flag | Source |
 |---|---|---|---|---|---|---|---|
-| US 2-year yield | 4.939 | 09-29 09:59 | **LIVE (~0 min old)** | +1.50 bp | 0.24 |  | cnbc:US2Y (unofficial feed) |
-| US 10-year yield | 5.255 | 09-29 09:59 | **LIVE (~0 min old)** | +1.30 bp | 0.23 |  | cnbc:US10Y (unofficial feed) |
-| 2s10s spread (10Y minus 2Y) | 0.316 | 09-29 09:59 | **LIVE (~0 min old)** | -0.20 bp | -0.06 |  | calc: cnbc:US10Y minus cnbc:US2Y (unofficial feed) |
+| US 2-year yield | 4.926 | 09-29 10:18 | **LIVE (~0 min old)** | +0.20 bp | 0.03 |  | cnbc:US2Y (unofficial feed) |
+| US 10-year yield | 5.251 | 09-29 10:18 | **LIVE (~0 min old)** | +0.90 bp | 0.16 |  | cnbc:US10Y (unofficial feed) |
+| 2s10s spread (10Y minus 2Y) | 0.325 | 09-29 10:18 | **LIVE (~0 min old)** | +0.70 bp | 0.20 |  | calc: cnbc:US10Y minus cnbc:US2Y (unofficial feed) |
 | 10-year real yield (TIPS) | 2.830 | 09-25 close | official value for 2026-09-25 (not live) | -2.00 bp (vs 2026-09-24) | -0.36 |  | fred:DFII10 |
 | 10-year breakeven inflation | 2.340 | 09-28 close | official value for 2026-09-28 (not live) | +0.00 bp (vs 2026-09-25) | 0.00 |  | fred:T10YIE |
 | SOFR | 3.900 | 09-28 close | official value for 2026-09-28 (not live) | +0.00 bp (vs 2026-09-25) | 0.00 |  | nyfed:SOFR |
 | 3M SOFR futures implied rate (front) | FAILED | | | | | | yahoo:SR3=F -> no prior close before the current session (9.0s) |
-| US dollar index (DXY) | 101.380 | 09-29 09:49 | **LIVE (~10 min old)** | +0.18 % (vs 2026-09-28) | 0.59 |  | yahoo:DX-Y.NYB (unofficial feed) |
-| USD/JPY | 157.489 | 09-29 09:59 | **LIVE (~0 min old)** | +0.02 % (vs 2026-09-28) | 0.03 |  | yahoo:JPY=X (unofficial feed) |
-| EUR/USD | 1.134 | 09-29 09:58 | **LIVE (~1 min old)** | -0.30 % (vs 2026-09-28) | -1.10 |  | yahoo:EURUSD=X (unofficial feed) |
+| US dollar index (DXY) | 101.378 | 09-29 10:09 | **LIVE (~10 min old)** | +0.18 % (vs 2026-09-28) | 0.58 |  | yahoo:DX-Y.NYB (unofficial feed) |
+| USD/JPY | 157.427 | 09-29 10:18 | **LIVE (~1 min old)** | -0.02 % (vs 2026-09-28) | -0.04 |  | yahoo:JPY=X (unofficial feed) |
+| EUR/USD | 1.134 | 09-29 10:18 | **LIVE (~1 min old)** | -0.31 % (vs 2026-09-28) | -1.14 |  | yahoo:EURUSD=X (unofficial feed) |
 | Broad trade-weighted dollar | 120.330 | 09-25 close | official value for 2026-09-25 (not live) | -0.18 % (vs 2026-09-24) | -0.76 |  | fred:DTWEXBGS |
-| S&P 500 futures (ES) | 7,737.750 | 09-29 09:49 | **LIVE (~10 min old)** | -0.12 % (vs 2026-09-28) | -0.19 |  | yahoo:ES=F (unofficial feed) |
-| Nasdaq 100 futures (NQ) | 30,579.500 | 09-29 09:49 | **LIVE (~10 min old)** | +0.04 % (vs 2026-09-28) | 0.05 |  | yahoo:NQ=F (unofficial feed) |
-| Russell 2000 futures (RTY) | 2,837.900 | 09-29 09:49 | **LIVE (~10 min old)** | -0.08 % (vs 2026-09-28) | -0.09 |  | yahoo:RTY=F (unofficial feed) |
-| S&P 500 index (cash) | 7,678.870 | 09-29 09:59 | **LIVE (~0 min old)** | -0.06 % (vs 2026-09-28) | -0.09 |  | yahoo:^GSPC (unofficial feed) |
-| Nasdaq 100 index (cash) | 30,344.633 | 09-29 09:59 | **LIVE (~0 min old)** | +0.22 % (vs 2026-09-28) | 0.20 |  | yahoo:^NDX (unofficial feed) |
-| Russell 2000 index (cash) | 2,822.964 | 09-29 09:44 | **LIVE (~15 min old)** | +0.18 % (vs 2026-09-28) | 0.22 |  | yahoo:^RUT (unofficial feed) |
-| VIX (spot) | 15.940 | 09-29 09:43 | **LIVE (~16 min old)** | -0.13 pts | -0.13 |  | cboe:VIX (unofficial feed) |
-| VIX futures (front month) | FAILED | | | | | | yahoo:VX=F -> YFTzMissingError: $VX=F: possibly delisted; no timezone found (6.0s) |
-| WTI crude | 90.940 | 09-29 09:49 | **LIVE (~10 min old)** | -1.79 % (vs 2026-09-28) | -0.63 |  | yahoo:CL=F (unofficial feed) |
-| Brent crude | 96.510 | 09-29 09:49 | **LIVE (~10 min old)** | -8.33 % (vs 2026-09-28) | -2.95 | **YES** | yahoo:BZ=F (unofficial feed) |
-| Gold | 4,189.900 | 09-29 09:49 | **LIVE (~10 min old)** | -3.04 % (vs 2026-09-25) | -2.54 | **YES** | yahoo:GC=F (unofficial feed) |
-| Copper | 6.613 | 09-29 09:49 | **LIVE (~10 min old)** | +0.72 % (vs 2026-09-28) | 0.48 |  | yahoo:HG=F (unofficial feed) |
+| S&P 500 futures (ES) | 7,738.250 | 09-29 10:09 | **LIVE (~10 min old)** | -0.11 % (vs 2026-09-28) | -0.18 |  | yahoo:ES=F (unofficial feed) |
+| Nasdaq 100 futures (NQ) | 30,609.000 | 09-29 10:09 | **LIVE (~10 min old)** | +0.14 % (vs 2026-09-28) | 0.15 |  | yahoo:NQ=F (unofficial feed) |
+| Russell 2000 futures (RTY) | 2,832.400 | 09-29 10:09 | **LIVE (~10 min old)** | -0.27 % (vs 2026-09-28) | -0.33 |  | yahoo:RTY=F (unofficial feed) |
+| S&P 500 index (cash) | 7,684.340 | 09-29 10:19 | **LIVE (~0 min old)** | +0.01 % (vs 2026-09-28) | 0.01 |  | yahoo:^GSPC (unofficial feed) |
+| Nasdaq 100 index (cash) | 30,384.219 | 09-29 10:18 | **LIVE (~1 min old)** | +0.35 % (vs 2026-09-28) | 0.32 |  | yahoo:^NDX (unofficial feed) |
+| Russell 2000 index (cash) | 2,817.212 | 09-29 10:03 | **LIVE (~16 min old)** | -0.02 % (vs 2026-09-28) | -0.03 |  | yahoo:^RUT (unofficial feed) |
+| VIX (spot) | 15.910 | 09-29 10:03 | **LIVE (~16 min old)** | -0.16 pts | -0.16 |  | cboe:VIX (unofficial feed) |
+| VIX futures (front month) | FAILED | | | | | | yahoo:VX=F -> YFTzMissingError: $VX=F: possibly delisted; no timezone found (7.2s) |
+| WTI crude | 91.220 | 09-29 10:09 | **LIVE (~10 min old)** | -1.49 % (vs 2026-09-28) | -0.53 |  | yahoo:CL=F (unofficial feed) |
+| Brent crude | 96.630 | 09-29 10:09 | **LIVE (~10 min old)** | -8.22 % (vs 2026-09-28) | -2.90 | **YES** | yahoo:BZ=F (unofficial feed) |
+| Gold | 4,200.300 | 09-29 10:09 | **LIVE (~10 min old)** | +0.77 % (vs 2026-09-28) | 0.53 |  | yahoo:GC=F (unofficial feed) |
+| Copper | 6.625 | 09-29 10:08 | **LIVE (~11 min old)** | +0.90 % (vs 2026-09-28) | 0.60 |  | yahoo:HG=F (unofficial feed) |
 
 ## Row notes
 
@@ -59,16 +59,16 @@ Status: LIVE = a trade within the last 60 min (free feeds are typically ~10-15 m
 
 ## Crypto
 
-**BTC**: price 84,225.92, 24h 0.71%, z 0.31
-- kraken: funding (raw, units unverified) 0.6473943790897781, OI 2335.896, OI change vs prior snapshot 5.25%
-- hyperliquid: funding (raw, units unverified) 0.0000125, OI 34175.5036399999, OI change vs prior snapshot -8.49%
+**BTC**: price 83,942.83, 24h 1.14%, z 0.50
+- kraken: funding (raw, units unverified) 0.706451560540875, OI 2327.8488, OI change vs prior snapshot -0.34%
+- hyperliquid: funding (raw, units unverified) 0.0000099751, OI 34684.17378, OI change vs prior snapshot 1.49%
 
-**ETH**: price 2,727.35, 24h 1.39%, z 0.53
-- kraken: funding (raw, units unverified) 0.02222949964825, OI 26227.692, OI change vs prior snapshot -1.13%
-- hyperliquid: funding (raw, units unverified) 0.0000125, OI 1205124.9816000024, OI change vs prior snapshot 8.78%
+**ETH**: price 2,715.82, 24h 1.84%, z 0.70
+- kraken: funding (raw, units unverified) 0.016293114031582425, OI 26241.961, OI change vs prior snapshot 0.05%
+- hyperliquid: funding (raw, units unverified) 0.0000125, OI 1205229.8048000012, OI change vs prior snapshot 0.01%
 
 
 ## Source errors
 
 - yahoo:SR3=F -> no prior close before the current session (9.0s)
-- yahoo:VX=F -> YFTzMissingError: $VX=F: possibly delisted; no timezone found (6.0s)
+- yahoo:VX=F -> YFTzMissingError: $VX=F: possibly delisted; no timezone found (7.2s)
