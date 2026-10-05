@@ -1,9 +1,9 @@
 {
- "generated_utc": "2026-10-05T15:34+00:00",
+ "generated_utc": "2026-10-05T15:54+00:00",
  "errors": {},
  "sentry": {
   "as_of": "2026-10-02T16:36",
-  "hours_old": 71.0,
+  "hours_old": 71.3,
   "names": 503,
   "stale_prices": 8,
   "top20_composite": [
@@ -1102,7 +1102,7 @@
  },
  "arbitrage": {
   "as_of": "2026-10-02T16:36:36+00:00",
-  "hours_old": 71.0,
+  "hours_old": 71.3,
   "top_pair_dislocations": [
    {
     "a": "ALL",
