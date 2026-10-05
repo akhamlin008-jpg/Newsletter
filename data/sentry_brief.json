@@ -1,9 +1,9 @@
 {
- "generated_utc": "2026-10-02T14:42+00:00",
+ "generated_utc": "2026-10-05T15:34+00:00",
  "errors": {},
  "sentry": {
-  "as_of": "2026-10-02T13:33",
-  "hours_old": 1.2,
+  "as_of": "2026-10-02T16:36",
+  "hours_old": 71.0,
   "names": 503,
   "stale_prices": 8,
   "top20_composite": [
@@ -1101,8 +1101,8 @@
   }
  },
  "arbitrage": {
-  "as_of": "2026-10-02T13:33:15+00:00",
-  "hours_old": 1.2,
+  "as_of": "2026-10-02T16:36:36+00:00",
+  "hours_old": 71.0,
   "top_pair_dislocations": [
    {
     "a": "ALL",
@@ -1223,12 +1223,12 @@
   }
  },
  "es_meanrev": {
-  "as_of": "2026-10-01",
+  "as_of": "2026-10-02",
   "verdict": "NO-TRADE",
-  "rsi2": 53.88,
+  "rsi2": 85.23,
   "rsi2_threshold": 15,
   "down3": false,
-  "close": 7736.0,
-  "generated_utc": "2026-10-02T02:03:18+00:00"
+  "close": 7776.5,
+  "generated_utc": "2026-10-03T01:46:56+00:00"
  }
 }
