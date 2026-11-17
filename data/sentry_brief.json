@@ -1,9 +1,9 @@
 {
- "generated_utc": "2026-11-16T18:22+00:00",
+ "generated_utc": "2026-11-17T16:50+00:00",
  "errors": {},
  "sentry": {
-  "as_of": "2026-11-13T18:29",
-  "hours_old": 71.9,
+  "as_of": "2026-11-16T20:58",
+  "hours_old": 19.9,
   "names": 503,
   "stale_prices": 6,
   "top20_composite": [
@@ -14,20 +14,20 @@
     "composite": 3.09,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": -0.98,
+    "dir_5d": -0.99,
     "pulse": "bearish",
-    "pulse_strength": 98,
-    "turnover_sigma": 5.44,
+    "pulse_strength": 99,
+    "turnover_sigma": 5.34,
     "dcf_mos_pct": null,
-    "price": 9.27,
+    "price": 9.01,
     "price_stale": false,
     "factors": {
      "value": 2.74,
      "quality": 0.11,
      "growth": 1.58,
-     "momentum": 0.53,
+     "momentum": 0.64,
      "dcf": null,
-     "reversal": 2.41
+     "reversal": 2.63
     }
    },
    {
@@ -37,43 +37,43 @@
     "composite": 2.75,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": 0.34,
-    "pulse": "bullish",
-    "pulse_strength": 34,
-    "turnover_sigma": 10.77,
-    "dcf_mos_pct": -23.0,
-    "price": 864.69,
+    "dir_5d": -0.7,
+    "pulse": "bearish",
+    "pulse_strength": 70,
+    "turnover_sigma": 11.07,
+    "dcf_mos_pct": -18.1,
+    "price": 808.7,
     "price_stale": false,
     "factors": {
-     "value": 0.95,
+     "value": 1.13,
      "quality": 0.95,
      "growth": 2.43,
-     "momentum": 2.37,
-     "dcf": -0.41,
-     "reversal": 1.11
+     "momentum": 2.33,
+     "dcf": -0.39,
+     "reversal": 2.35
     }
    },
    {
     "rank": 3,
-    "ticker": "SYF",
-    "sector": "Financials",
+    "ticker": "MU",
+    "sector": "Information Technology",
     "composite": 2.58,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": -0.22,
+    "dir_5d": -0.19,
     "pulse": "bearish",
-    "pulse_strength": 22,
-    "turnover_sigma": 0.13,
-    "dcf_mos_pct": null,
-    "price": 72.11,
+    "pulse_strength": 19,
+    "turnover_sigma": 1.96,
+    "dcf_mos_pct": -12.1,
+    "price": 718.85,
     "price_stale": false,
     "factors": {
-     "value": 2.29,
-     "quality": -0.02,
-     "growth": 1.39,
-     "momentum": -0.24,
-     "dcf": null,
-     "reversal": 1.09
+     "value": 0.69,
+     "quality": 1.74,
+     "growth": null,
+     "momentum": 2.22,
+     "dcf": -0.33,
+     "reversal": 1.01
     }
    },
    {
@@ -83,43 +83,43 @@
     "composite": 2.46,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": 0.0,
-    "pulse": "bullish",
-    "pulse_strength": 0,
-    "turnover_sigma": 0.26,
-    "dcf_mos_pct": 285.4,
-    "price": 59.26,
+    "dir_5d": -0.21,
+    "pulse": "bearish",
+    "pulse_strength": 21,
+    "turnover_sigma": 0.23,
+    "dcf_mos_pct": 291.3,
+    "price": 58.77,
     "price_stale": false,
     "factors": {
      "value": 1.78,
      "quality": 0.09,
      "growth": 0.82,
-     "momentum": -0.13,
-     "dcf": 2.39,
-     "reversal": 0.43
+     "momentum": -0.17,
+     "dcf": 2.57,
+     "reversal": 0.25
     }
    },
    {
     "rank": 5,
-    "ticker": "MU",
-    "sector": "Information Technology",
+    "ticker": "SYF",
+    "sector": "Financials",
     "composite": 2.37,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": 0.79,
-    "pulse": "bullish",
-    "pulse_strength": 78,
-    "turnover_sigma": 1.88,
-    "dcf_mos_pct": -16.8,
-    "price": 763.01,
+    "dir_5d": -0.2,
+    "pulse": "bearish",
+    "pulse_strength": 20,
+    "turnover_sigma": 0.12,
+    "dcf_mos_pct": null,
+    "price": 71.73,
     "price_stale": false,
     "factors": {
-     "value": 0.55,
-     "quality": 1.74,
-     "growth": null,
-     "momentum": 2.24,
-     "dcf": -0.35,
-     "reversal": -0.09
+     "value": 2.29,
+     "quality": -0.03,
+     "growth": 1.39,
+     "momentum": -0.34,
+     "dcf": null,
+     "reversal": 0.52
     }
    },
    {
@@ -129,43 +129,43 @@
     "composite": 2.29,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": 0.06,
-    "pulse": "bullish",
-    "pulse_strength": 6,
+    "dir_5d": -0.15,
+    "pulse": "bearish",
+    "pulse_strength": 15,
     "turnover_sigma": -0.29,
     "dcf_mos_pct": null,
-    "price": 120.31,
+    "price": 120.09,
     "price_stale": false,
     "factors": {
-     "value": 0.46,
+     "value": 0.49,
      "quality": 0.93,
      "growth": 1.87,
-     "momentum": 0.73,
+     "momentum": 0.68,
      "dcf": null,
-     "reversal": 0.19
+     "reversal": 0.01
     }
    },
    {
     "rank": 7,
-    "ticker": "DVA",
-    "sector": "Health Care",
+    "ticker": "SMCI",
+    "sector": "Information Technology",
     "composite": 2.23,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.72,
+    "dir_5d": -0.85,
     "pulse": "bearish",
-    "pulse_strength": 72,
-    "turnover_sigma": 0.13,
+    "pulse_strength": 85,
+    "turnover_sigma": 7.31,
     "dcf_mos_pct": null,
-    "price": 173.95,
+    "price": 24.97,
     "price_stale": false,
     "factors": {
-     "value": 1.52,
-     "quality": -0.16,
-     "growth": 0.12,
-     "momentum": 1.15,
+     "value": 0.35,
+     "quality": 0.76,
+     "growth": 1.27,
+     "momentum": -0.59,
      "dcf": null,
-     "reversal": 1.69
+     "reversal": 2.01
     }
    },
    {
@@ -175,43 +175,43 @@
     "composite": 2.17,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.23,
+    "dir_5d": -0.16,
     "pulse": "bearish",
-    "pulse_strength": 23,
-    "turnover_sigma": 0.33,
-    "dcf_mos_pct": 235.0,
-    "price": 63.2,
+    "pulse_strength": 16,
+    "turnover_sigma": 0.3,
+    "dcf_mos_pct": 241.7,
+    "price": 62.24,
     "price_stale": false,
     "factors": {
-     "value": 1.38,
+     "value": 1.41,
      "quality": 0.52,
      "growth": 0.01,
-     "momentum": 0.01,
-     "dcf": 1.69,
-     "reversal": 1.17
+     "momentum": 0.04,
+     "dcf": 1.76,
+     "reversal": 0.59
     }
    },
    {
     "rank": 9,
-    "ticker": "SMCI",
-    "sector": "Information Technology",
+    "ticker": "DVA",
+    "sector": "Health Care",
     "composite": 2.12,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.62,
+    "dir_5d": -0.56,
     "pulse": "bearish",
-    "pulse_strength": 62,
-    "turnover_sigma": 7.13,
+    "pulse_strength": 56,
+    "turnover_sigma": 0.11,
     "dcf_mos_pct": null,
-    "price": 26.66,
+    "price": 173.84,
     "price_stale": false,
     "factors": {
-     "value": 0.32,
-     "quality": 0.76,
-     "growth": 1.27,
-     "momentum": -0.31,
+     "value": 1.53,
+     "quality": -0.16,
+     "growth": 0.13,
+     "momentum": 1.15,
      "dcf": null,
-     "reversal": 2.0
+     "reversal": 1.22
     }
    },
    {
@@ -221,89 +221,89 @@
     "composite": 2.08,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.59,
+    "dir_5d": -0.69,
     "pulse": "bearish",
-    "pulse_strength": 59,
-    "turnover_sigma": 0.58,
-    "dcf_mos_pct": 187.6,
-    "price": 5872.69,
+    "pulse_strength": 69,
+    "turnover_sigma": 0.56,
+    "dcf_mos_pct": 194.0,
+    "price": 5798.01,
     "price_stale": false,
     "factors": {
-     "value": 1.19,
+     "value": 1.15,
      "quality": 0.47,
      "growth": 0.91,
-     "momentum": -1.07,
-     "dcf": 1.34,
-     "reversal": 1.39
+     "momentum": -1.15,
+     "dcf": 1.41,
+     "reversal": 1.25
     }
    },
    {
     "rank": 11,
-    "ticker": "ADBE",
-    "sector": "Information Technology",
+    "ticker": "EXPE",
+    "sector": "Consumer Discretionary",
     "composite": 2.04,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": 0.11,
-    "pulse": "bullish",
-    "pulse_strength": 11,
-    "turnover_sigma": 0.16,
-    "dcf_mos_pct": null,
-    "price": 241.96,
+    "dir_5d": -0.25,
+    "pulse": "bearish",
+    "pulse_strength": 25,
+    "turnover_sigma": 0.77,
+    "dcf_mos_pct": 151.6,
+    "price": 252.6,
     "price_stale": false,
     "factors": {
-     "value": 1.1,
-     "quality": 1.23,
-     "growth": 0.83,
-     "momentum": -0.69,
-     "dcf": null,
-     "reversal": 0.57
+     "value": 0.89,
+     "quality": 0.15,
+     "growth": 0.8,
+     "momentum": 0.59,
+     "dcf": 1.12,
+     "reversal": 0.92
     }
    },
    {
     "rank": 12,
-    "ticker": "AMCR",
-    "sector": "Materials",
+    "ticker": "DECK",
+    "sector": "Consumer Discretionary",
     "composite": 2.0,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.22,
+    "dir_5d": -0.64,
     "pulse": "bearish",
-    "pulse_strength": 22,
-    "turnover_sigma": -0.33,
-    "dcf_mos_pct": 165.0,
-    "price": 43.88,
+    "pulse_strength": 64,
+    "turnover_sigma": 1.34,
+    "dcf_mos_pct": null,
+    "price": 83.57,
     "price_stale": false,
     "factors": {
-     "value": 0.78,
-     "quality": -0.07,
-     "growth": 1.37,
-     "momentum": 0.38,
-     "dcf": 1.18,
-     "reversal": 0.94
+     "value": 1.47,
+     "quality": 0.75,
+     "growth": 0.62,
+     "momentum": -1.16,
+     "dcf": null,
+     "reversal": 1.16
     }
    },
    {
     "rank": 13,
-    "ticker": "EXPE",
-    "sector": "Consumer Discretionary",
+    "ticker": "MRNA",
+    "sector": "Health Care",
     "composite": 1.96,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": 0.02,
-    "pulse": "bullish",
-    "pulse_strength": 2,
-    "turnover_sigma": 0.77,
-    "dcf_mos_pct": 143.4,
-    "price": 259.84,
+    "dir_5d": -0.97,
+    "pulse": "bearish",
+    "pulse_strength": 97,
+    "turnover_sigma": 2.54,
+    "dcf_mos_pct": null,
+    "price": 214.28,
     "price_stale": false,
     "factors": {
-     "value": 0.83,
-     "quality": 0.15,
-     "growth": 0.8,
-     "momentum": 0.68,
-     "dcf": 1.06,
-     "reversal": 0.93
+     "value": -1.35,
+     "quality": -0.96,
+     "growth": 3.07,
+     "momentum": 2.92,
+     "dcf": null,
+     "reversal": 1.66
     }
    },
    {
@@ -313,380 +313,380 @@
     "composite": 1.93,
     "percentile": 97.0,
     "grade": "A+",
-    "dir_5d": -0.01,
+    "dir_5d": -0.32,
     "pulse": "bearish",
-    "pulse_strength": 0,
-    "turnover_sigma": 0.82,
-    "dcf_mos_pct": 126.5,
-    "price": 101.92,
+    "pulse_strength": 32,
+    "turnover_sigma": 0.81,
+    "dcf_mos_pct": 132.1,
+    "price": 99.38,
     "price_stale": false,
     "factors": {
      "value": -0.78,
      "quality": 1.02,
      "growth": 1.67,
-     "momentum": 0.33,
-     "dcf": 0.91,
-     "reversal": 1.51
+     "momentum": 0.26,
+     "dcf": 0.96,
+     "reversal": 1.44
     }
    },
    {
     "rank": 15,
-    "ticker": "MRNA",
-    "sector": "Health Care",
+    "ticker": "AMCR",
+    "sector": "Materials",
     "composite": 1.9,
     "percentile": 97.0,
     "grade": "A+",
-    "dir_5d": -0.81,
+    "dir_5d": -0.29,
     "pulse": "bearish",
-    "pulse_strength": 81,
-    "turnover_sigma": 2.69,
-    "dcf_mos_pct": null,
-    "price": 225.35,
+    "pulse_strength": 29,
+    "turnover_sigma": -0.33,
+    "dcf_mos_pct": 167.4,
+    "price": 43.81,
     "price_stale": false,
     "factors": {
-     "value": -1.37,
-     "quality": -0.96,
-     "growth": 3.07,
-     "momentum": 2.92,
-     "dcf": null,
-     "reversal": 1.63
+     "value": 0.79,
+     "quality": -0.07,
+     "growth": 1.37,
+     "momentum": 0.32,
+     "dcf": 1.19,
+     "reversal": 0.57
     }
    },
    {
     "rank": 16,
-    "ticker": "LULU",
-    "sector": "Consumer Discretionary",
+    "ticker": "FTNT",
+    "sector": "Information Technology",
     "composite": 1.87,
     "percentile": 97.0,
-    "grade": "A+",
-    "dir_5d": -0.44,
-    "pulse": "bearish",
-    "pulse_strength": 44,
-    "turnover_sigma": 3.35,
-    "dcf_mos_pct": 198.3,
-    "price": 105.5,
-    "price_stale": false,
-    "factors": {
-     "value": 1.75,
-     "quality": 0.25,
-     "growth": 0.91,
-     "momentum": -2.05,
-     "dcf": 1.43,
-     "reversal": 0.85
-    }
-   },
-   {
-    "rank": 17,
-    "ticker": "DECK",
-    "sector": "Consumer Discretionary",
-    "composite": 1.84,
-    "percentile": 97.0,
-    "grade": "A+",
-    "dir_5d": -0.05,
-    "pulse": "bearish",
-    "pulse_strength": 5,
-    "turnover_sigma": 1.32,
-    "dcf_mos_pct": null,
-    "price": 86.25,
-    "price_stale": false,
-    "factors": {
-     "value": 1.46,
-     "quality": 0.75,
-     "growth": 0.62,
-     "momentum": -1.14,
-     "dcf": null,
-     "reversal": 0.71
-    }
-   },
-   {
-    "rank": 18,
-    "ticker": "WSM",
-    "sector": "Consumer Discretionary",
-    "composite": 1.81,
-    "percentile": 96.0,
-    "grade": "A+",
-    "dir_5d": -0.14,
-    "pulse": "bearish",
-    "pulse_strength": 14,
-    "turnover_sigma": -0.17,
-    "dcf_mos_pct": 70.2,
-    "price": 250.46,
-    "price_stale": false,
-    "factors": {
-     "value": 0.15,
-     "quality": 0.67,
-     "growth": 0.72,
-     "momentum": 1.0,
-     "dcf": 0.45,
-     "reversal": 0.86
-    }
-   },
-   {
-    "rank": 19,
-    "ticker": "CRM",
-    "sector": "Information Technology",
-    "composite": 1.79,
-    "percentile": 96.0,
-    "grade": "A+",
-    "dir_5d": 0.18,
-    "pulse": "bullish",
-    "pulse_strength": 18,
-    "turnover_sigma": 0.37,
-    "dcf_mos_pct": null,
-    "price": 217.44,
-    "price_stale": false,
-    "factors": {
-     "value": -0.02,
-     "quality": 1.13,
-     "growth": 0.69,
-     "momentum": 0.56,
-     "dcf": null,
-     "reversal": 0.66
-    }
-   },
-   {
-    "rank": 20,
-    "ticker": "HCA",
-    "sector": "Health Care",
-    "composite": 1.76,
-    "percentile": 96.0,
     "grade": "A+",
     "dir_5d": 0.06,
     "pulse": "bullish",
     "pulse_strength": 6,
-    "turnover_sigma": -0.5,
+    "turnover_sigma": -0.25,
     "dcf_mos_pct": null,
-    "price": 497.91,
+    "price": 123.18,
     "price_stale": false,
     "factors": {
-     "value": 0.93,
-     "quality": 1.02,
-     "growth": 0.49,
-     "momentum": -0.11,
+     "value": -0.73,
+     "quality": 1.04,
+     "growth": 0.63,
+     "momentum": 2.05,
      "dcf": null,
-     "reversal": 0.18
+     "reversal": 0.8
+    }
+   },
+   {
+    "rank": 17,
+    "ticker": "PSX",
+    "sector": "Energy",
+    "composite": 1.84,
+    "percentile": 97.0,
+    "grade": "A+",
+    "dir_5d": 0.3,
+    "pulse": "bullish",
+    "pulse_strength": 30,
+    "turnover_sigma": -0.32,
+    "dcf_mos_pct": null,
+    "price": 260.74,
+    "price_stale": false,
+    "factors": {
+     "value": 1.02,
+     "quality": 0.12,
+     "growth": 0.08,
+     "momentum": 1.96,
+     "dcf": null,
+     "reversal": 0.01
+    }
+   },
+   {
+    "rank": 18,
+    "ticker": "META",
+    "sector": "Communication Services",
+    "composite": 1.81,
+    "percentile": 96.0,
+    "grade": "A+",
+    "dir_5d": -0.24,
+    "pulse": "bearish",
+    "pulse_strength": 24,
+    "turnover_sigma": -0.2,
+    "dcf_mos_pct": 31.5,
+    "price": 625.88,
+    "price_stale": false,
+    "factors": {
+     "value": -0.32,
+     "quality": 1.3,
+     "growth": 1.59,
+     "momentum": -0.17,
+     "dcf": 0.13,
+     "reversal": 0.87
+    }
+   },
+   {
+    "rank": 19,
+    "ticker": "DXCM",
+    "sector": "Health Care",
+    "composite": 1.79,
+    "percentile": 96.0,
+    "grade": "A+",
+    "dir_5d": 0.07,
+    "pulse": "bullish",
+    "pulse_strength": 7,
+    "turnover_sigma": 0.06,
+    "dcf_mos_pct": 7.0,
+    "price": 81.61,
+    "price_stale": false,
+    "factors": {
+     "value": -0.8,
+     "quality": 1.64,
+     "growth": 1.53,
+     "momentum": 1.06,
+     "dcf": -0.1,
+     "reversal": 0.22
+    }
+   },
+   {
+    "rank": 20,
+    "ticker": "FCX",
+    "sector": "Materials",
+    "composite": 1.76,
+    "percentile": 96.0,
+    "grade": "A+",
+    "dir_5d": -0.82,
+    "pulse": "bearish",
+    "pulse_strength": 82,
+    "turnover_sigma": -0.02,
+    "dcf_mos_pct": null,
+    "price": 55.08,
+    "price_stale": false,
+    "factors": {
+     "value": 0.76,
+     "quality": 0.21,
+     "growth": -0.46,
+     "momentum": 0.68,
+     "dcf": null,
+     "reversal": 1.92
     }
    }
   ],
   "pulse_top_bulls": [
    {
-    "ticker": "TTD",
-    "sector": "Communication Services",
-    "composite": -0.44,
-    "percentile": 33.0,
-    "grade": "D",
-    "dir_5d": 0.98,
-    "pulse": "bullish",
-    "pulse_strength": 98,
-    "turnover_sigma": 2.84,
-    "dcf_mos_pct": null,
-    "price": 15.78,
-    "price_stale": false,
-    "factors": {
-     "value": 1.11,
-     "quality": 0.67,
-     "growth": 1.28,
-     "momentum": -2.83,
-     "dcf": null,
-     "reversal": -2.51
-    }
-   },
-   {
-    "ticker": "AVGO",
-    "sector": "Information Technology",
-    "composite": -1.55,
-    "percentile": 6.0,
-    "grade": "F",
-    "dir_5d": 0.94,
-    "pulse": "bullish",
-    "pulse_strength": 94,
-    "turnover_sigma": -0.56,
-    "dcf_mos_pct": -68.1,
-    "price": 345.58,
-    "price_stale": false,
-    "factors": {
-     "value": -1.54,
-     "quality": 0.69,
-     "growth": 0.36,
-     "momentum": -0.72,
-     "dcf": -1.19,
-     "reversal": -1.15
-    }
-   },
-   {
-    "ticker": "AMD",
-    "sector": "Information Technology",
-    "composite": -0.48,
-    "percentile": 32.0,
-    "grade": "D",
-    "dir_5d": 0.94,
-    "pulse": "bullish",
-    "pulse_strength": 94,
-    "turnover_sigma": 0.46,
-    "dcf_mos_pct": -90.5,
-    "price": 526.2,
-    "price_stale": false,
-    "factors": {
-     "value": -1.26,
-     "quality": 0.21,
-     "growth": 0.81,
-     "momentum": 1.99,
-     "dcf": -1.59,
-     "reversal": -0.78
-    }
-   },
-   {
     "ticker": "CHTR",
     "sector": "Communication Services",
-    "composite": 0.15,
-    "percentile": 56.0,
-    "grade": "C",
-    "dir_5d": 0.94,
-    "pulse": "bullish",
-    "pulse_strength": 94,
-    "turnover_sigma": 1.21,
-    "dcf_mos_pct": null,
-    "price": 138.2,
-    "price_stale": false,
-    "factors": {
-     "value": 2.1,
-     "quality": -0.04,
-     "growth": 1.66,
-     "momentum": -2.66,
-     "dcf": null,
-     "reversal": -2.34
-    }
-   },
-   {
-    "ticker": "MPWR",
-    "sector": "Information Technology",
-    "composite": -1.03,
-    "percentile": 15.0,
-    "grade": "F",
-    "dir_5d": 0.93,
-    "pulse": "bullish",
-    "pulse_strength": 93,
-    "turnover_sigma": 0.48,
-    "dcf_mos_pct": -86.8,
-    "price": 1386.4,
-    "price_stale": false,
-    "factors": {
-     "value": -1.48,
-     "quality": 1.02,
-     "growth": 1.13,
-     "momentum": -0.12,
-     "dcf": -1.51,
-     "reversal": -1.61
-    }
-   },
-   {
-    "ticker": "ANET",
-    "sector": "Information Technology",
-    "composite": 0.06,
-    "percentile": 52.0,
-    "grade": "C",
-    "dir_5d": 0.91,
-    "pulse": "bullish",
-    "pulse_strength": 91,
-    "turnover_sigma": -0.61,
-    "dcf_mos_pct": -43.7,
-    "price": 197.29,
-    "price_stale": false,
-    "factors": {
-     "value": -1.03,
-     "quality": 0.95,
-     "growth": 1.31,
-     "momentum": 0.72,
-     "dcf": -0.7,
-     "reversal": -1.24
-    }
-   },
-   {
-    "ticker": "CIEN",
-    "sector": "Information Technology",
-    "composite": -1.7,
-    "percentile": 4.0,
-    "grade": "F",
+    "composite": -0.16,
+    "percentile": 44.0,
+    "grade": "D",
     "dir_5d": 0.9,
     "pulse": "bullish",
     "pulse_strength": 90,
-    "turnover_sigma": 1.46,
-    "dcf_mos_pct": -77.1,
-    "price": 278.76,
-    "price_stale": false,
-    "factors": {
-     "value": -1.04,
-     "quality": -0.36,
-     "growth": -0.54,
-     "momentum": 0.01,
-     "dcf": -1.34,
-     "reversal": -0.23
-    }
-   },
-   {
-    "ticker": "TER",
-    "sector": "Information Technology",
-    "composite": -0.76,
-    "percentile": 22.0,
-    "grade": "F",
-    "dir_5d": 0.89,
-    "pulse": "bullish",
-    "pulse_strength": 89,
-    "turnover_sigma": 1.57,
-    "dcf_mos_pct": -87.8,
-    "price": 249.35,
-    "price_stale": false,
-    "factors": {
-     "value": -0.96,
-     "quality": 0.55,
-     "growth": -0.27,
-     "momentum": 0.69,
-     "dcf": -1.53,
-     "reversal": -0.09
-    }
-   },
-   {
-    "ticker": "STX",
-    "sector": "Information Technology",
-    "composite": -1.35,
-    "percentile": 9.0,
-    "grade": "F",
-    "dir_5d": 0.87,
-    "pulse": "bullish",
-    "pulse_strength": 87,
-    "turnover_sigma": 1.87,
-    "dcf_mos_pct": -97.5,
-    "price": 522.39,
-    "price_stale": false,
-    "factors": {
-     "value": -1.06,
-     "quality": -0.21,
-     "growth": -0.82,
-     "momentum": 1.77,
-     "dcf": -1.95,
-     "reversal": -0.14
-    }
-   },
-   {
-    "ticker": "LRCX",
-    "sector": "Information Technology",
-    "composite": 0.43,
-    "percentile": 67.0,
-    "grade": "B",
-    "dir_5d": 0.83,
-    "pulse": "bullish",
-    "pulse_strength": 84,
-    "turnover_sigma": -0.1,
+    "turnover_sigma": 1.15,
     "dcf_mos_pct": null,
-    "price": 224.56,
+    "price": 139.0,
     "price_stale": false,
     "factors": {
-     "value": -0.97,
-     "quality": 0.86,
-     "growth": 0.34,
-     "momentum": 0.97,
+     "value": 2.03,
+     "quality": -0.04,
+     "growth": 1.66,
+     "momentum": -2.83,
      "dcf": null,
-     "reversal": -0.18
+     "reversal": -2.69
+    }
+   },
+   {
+    "ticker": "CNC",
+    "sector": "Health Care",
+    "composite": -0.39,
+    "percentile": 35.0,
+    "grade": "D",
+    "dir_5d": 0.73,
+    "pulse": "bullish",
+    "pulse_strength": 73,
+    "turnover_sigma": -0.19,
+    "dcf_mos_pct": null,
+    "price": 74.92,
+    "price_stale": false,
+    "factors": {
+     "value": -0.17,
+     "quality": -1.23,
+     "growth": 1.27,
+     "momentum": 1.78,
+     "dcf": null,
+     "reversal": -1.68
+    }
+   },
+   {
+    "ticker": "HUM",
+    "sector": "Health Care",
+    "composite": -1.43,
+    "percentile": 8.0,
+    "grade": "F",
+    "dir_5d": 0.72,
+    "pulse": "bullish",
+    "pulse_strength": 72,
+    "turnover_sigma": -0.07,
+    "dcf_mos_pct": -92.6,
+    "price": 461.62,
+    "price_stale": false,
+    "factors": {
+     "value": 0.02,
+     "quality": -0.82,
+     "growth": -0.51,
+     "momentum": 1.75,
+     "dcf": -1.76,
+     "reversal": -1.83
+    }
+   },
+   {
+    "ticker": "CBOE",
+    "sector": "Financials",
+    "composite": 0.18,
+    "percentile": 57.0,
+    "grade": "C",
+    "dir_5d": 0.61,
+    "pulse": "bullish",
+    "pulse_strength": 61,
+    "turnover_sigma": -0.17,
+    "dcf_mos_pct": null,
+    "price": 377.59,
+    "price_stale": false,
+    "factors": {
+     "value": -0.3,
+     "quality": 1.04,
+     "growth": 0.85,
+     "momentum": 0.46,
+     "dcf": null,
+     "reversal": -2.15
+    }
+   },
+   {
+    "ticker": "ELV",
+    "sector": "Health Care",
+    "composite": 0.41,
+    "percentile": 66.0,
+    "grade": "B",
+    "dir_5d": 0.58,
+    "pulse": "bullish",
+    "pulse_strength": 58,
+    "turnover_sigma": -0.54,
+    "dcf_mos_pct": 117.2,
+    "price": 446.16,
+    "price_stale": false,
+    "factors": {
+     "value": 0.78,
+     "quality": -0.58,
+     "growth": 0.33,
+     "momentum": 0.96,
+     "dcf": 0.79,
+     "reversal": -1.18
+    }
+   },
+   {
+    "ticker": "TRGP",
+    "sector": "Energy",
+    "composite": 0.01,
+    "percentile": 51.0,
+    "grade": "C",
+    "dir_5d": 0.58,
+    "pulse": "bullish",
+    "pulse_strength": 58,
+    "turnover_sigma": -0.53,
+    "dcf_mos_pct": -73.7,
+    "price": 291.73,
+    "price_stale": false,
+    "factors": {
+     "value": -0.2,
+     "quality": 0.1,
+     "growth": 0.88,
+     "momentum": 1.45,
+     "dcf": -1.28,
+     "reversal": -0.88
+    }
+   },
+   {
+    "ticker": "ALL",
+    "sector": "Financials",
+    "composite": 0.61,
+    "percentile": 73.0,
+    "grade": "B",
+    "dir_5d": 0.57,
+    "pulse": "bullish",
+    "pulse_strength": 57,
+    "turnover_sigma": -0.39,
+    "dcf_mos_pct": null,
+    "price": 270.36,
+    "price_stale": false,
+    "factors": {
+     "value": 1.41,
+     "quality": 0.22,
+     "growth": -0.32,
+     "momentum": 0.65,
+     "dcf": null,
+     "reversal": -1.48
+    }
+   },
+   {
+    "ticker": "TSN",
+    "sector": "Consumer Staples",
+    "composite": -1.1,
+    "percentile": 14.0,
+    "grade": "F",
+    "dir_5d": 0.56,
+    "pulse": "bullish",
+    "pulse_strength": 56,
+    "turnover_sigma": -0.21,
+    "dcf_mos_pct": null,
+    "price": 63.68,
+    "price_stale": false,
+    "factors": {
+     "value": 0.66,
+     "quality": -0.5,
+     "growth": -0.21,
+     "momentum": -0.54,
+     "dcf": null,
+     "reversal": -1.81
+    }
+   },
+   {
+    "ticker": "APA",
+    "sector": "Energy",
+    "composite": 1.74,
+    "percentile": 96.0,
+    "grade": "A+",
+    "dir_5d": 0.54,
+    "pulse": "bullish",
+    "pulse_strength": 54,
+    "turnover_sigma": 0.48,
+    "dcf_mos_pct": null,
+    "price": 47.26,
+    "price_stale": false,
+    "factors": {
+     "value": 1.95,
+     "quality": 1.01,
+     "growth": -1.79,
+     "momentum": 1.7,
+     "dcf": null,
+     "reversal": -0.69
+    }
+   },
+   {
+    "ticker": "VRSK",
+    "sector": "Industrials",
+    "composite": -0.81,
+    "percentile": 21.0,
+    "grade": "F",
+    "dir_5d": 0.54,
+    "pulse": "bullish",
+    "pulse_strength": 54,
+    "turnover_sigma": -0.25,
+    "dcf_mos_pct": null,
+    "price": 212.84,
+    "price_stale": false,
+    "factors": {
+     "value": -0.1,
+     "quality": 0.48,
+     "growth": -0.35,
+     "momentum": -0.38,
+     "dcf": null,
+     "reversal": -1.54
     }
    }
   ],
@@ -697,42 +697,86 @@
     "composite": 3.09,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": -0.98,
+    "dir_5d": -0.99,
     "pulse": "bearish",
-    "pulse_strength": 98,
-    "turnover_sigma": 5.44,
+    "pulse_strength": 99,
+    "turnover_sigma": 5.34,
     "dcf_mos_pct": null,
-    "price": 9.27,
+    "price": 9.01,
     "price_stale": false,
     "factors": {
      "value": 2.74,
      "quality": 0.11,
      "growth": 1.58,
-     "momentum": 0.53,
+     "momentum": 0.64,
      "dcf": null,
-     "reversal": 2.41
+     "reversal": 2.63
+    }
+   },
+   {
+    "ticker": "MRNA",
+    "sector": "Health Care",
+    "composite": 1.96,
+    "percentile": 98.0,
+    "grade": "A+",
+    "dir_5d": -0.97,
+    "pulse": "bearish",
+    "pulse_strength": 97,
+    "turnover_sigma": 2.54,
+    "dcf_mos_pct": null,
+    "price": 214.28,
+    "price_stale": false,
+    "factors": {
+     "value": -1.35,
+     "quality": -0.96,
+     "growth": 3.07,
+     "momentum": 2.92,
+     "dcf": null,
+     "reversal": 1.66
     }
    },
    {
     "ticker": "FSLR",
     "sector": "Information Technology",
-    "composite": 1.39,
+    "composite": 1.42,
     "percentile": 92.0,
     "grade": "A+",
-    "dir_5d": -0.92,
+    "dir_5d": -0.91,
     "pulse": "bearish",
-    "pulse_strength": 92,
-    "turnover_sigma": 1.53,
-    "dcf_mos_pct": 62.4,
-    "price": 169.35,
+    "pulse_strength": 91,
+    "turnover_sigma": 1.57,
+    "dcf_mos_pct": 71.3,
+    "price": 162.42,
     "price_stale": false,
     "factors": {
-     "value": 0.98,
+     "value": 1.05,
      "quality": 0.61,
-     "growth": -0.4,
-     "momentum": -0.88,
-     "dcf": 0.4,
-     "reversal": 1.75
+     "growth": -0.41,
+     "momentum": -1.08,
+     "dcf": 0.43,
+     "reversal": 1.74
+    }
+   },
+   {
+    "ticker": "HOOD",
+    "sector": "Financials",
+    "composite": 0.5,
+    "percentile": 69.0,
+    "grade": "B",
+    "dir_5d": -0.87,
+    "pulse": "bearish",
+    "pulse_strength": 87,
+    "turnover_sigma": 2.14,
+    "dcf_mos_pct": null,
+    "price": 72.08,
+    "price_stale": false,
+    "factors": {
+     "value": -0.49,
+     "quality": -0.32,
+     "growth": 0.6,
+     "momentum": -0.46,
+     "dcf": null,
+     "reversal": 2.19
     }
    },
    {
@@ -741,174 +785,130 @@
     "composite": 1.66,
     "percentile": 95.0,
     "grade": "A+",
-    "dir_5d": -0.88,
+    "dir_5d": -0.86,
     "pulse": "bearish",
-    "pulse_strength": 88,
-    "turnover_sigma": -0.3,
-    "dcf_mos_pct": -63.2,
-    "price": 161.32,
+    "pulse_strength": 86,
+    "turnover_sigma": -0.26,
+    "dcf_mos_pct": -61.9,
+    "price": 155.85,
     "price_stale": false,
     "factors": {
-     "value": -0.52,
+     "value": -0.48,
      "quality": 0.96,
      "growth": 1.46,
-     "momentum": 0.41,
-     "dcf": -1.03,
-     "reversal": 2.21
-    }
-   },
-   {
-    "ticker": "MRNA",
-    "sector": "Health Care",
-    "composite": 1.9,
-    "percentile": 97.0,
-    "grade": "A+",
-    "dir_5d": -0.81,
-    "pulse": "bearish",
-    "pulse_strength": 81,
-    "turnover_sigma": 2.69,
-    "dcf_mos_pct": null,
-    "price": 225.35,
-    "price_stale": false,
-    "factors": {
-     "value": -1.37,
-     "quality": -0.96,
-     "growth": 3.07,
-     "momentum": 2.92,
-     "dcf": null,
-     "reversal": 1.63
-    }
-   },
-   {
-    "ticker": "DVA",
-    "sector": "Health Care",
-    "composite": 2.23,
-    "percentile": 99.0,
-    "grade": "A+",
-    "dir_5d": -0.72,
-    "pulse": "bearish",
-    "pulse_strength": 72,
-    "turnover_sigma": 0.13,
-    "dcf_mos_pct": null,
-    "price": 173.95,
-    "price_stale": false,
-    "factors": {
-     "value": 1.52,
-     "quality": -0.16,
-     "growth": 0.12,
-     "momentum": 1.15,
-     "dcf": null,
-     "reversal": 1.69
+     "momentum": 0.32,
+     "dcf": -1.0,
+     "reversal": 2.18
     }
    },
    {
     "ticker": "SMCI",
     "sector": "Information Technology",
-    "composite": 2.12,
-    "percentile": 98.0,
+    "composite": 2.23,
+    "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.62,
+    "dir_5d": -0.85,
     "pulse": "bearish",
-    "pulse_strength": 62,
-    "turnover_sigma": 7.13,
+    "pulse_strength": 85,
+    "turnover_sigma": 7.31,
     "dcf_mos_pct": null,
-    "price": 26.66,
+    "price": 24.97,
     "price_stale": false,
     "factors": {
-     "value": 0.32,
+     "value": 0.35,
      "quality": 0.76,
      "growth": 1.27,
-     "momentum": -0.31,
+     "momentum": -0.59,
      "dcf": null,
-     "reversal": 2.0
-    }
-   },
-   {
-    "ticker": "NVR",
-    "sector": "Consumer Discretionary",
-    "composite": 2.08,
-    "percentile": 98.0,
-    "grade": "A+",
-    "dir_5d": -0.59,
-    "pulse": "bearish",
-    "pulse_strength": 59,
-    "turnover_sigma": 0.58,
-    "dcf_mos_pct": 187.6,
-    "price": 5872.69,
-    "price_stale": false,
-    "factors": {
-     "value": 1.19,
-     "quality": 0.47,
-     "growth": 0.91,
-     "momentum": -1.07,
-     "dcf": 1.34,
-     "reversal": 1.39
+     "reversal": 2.01
     }
    },
    {
     "ticker": "NEM",
     "sector": "Materials",
-    "composite": 0.73,
-    "percentile": 77.0,
-    "grade": "B",
-    "dir_5d": -0.58,
+    "composite": 0.89,
+    "percentile": 81.0,
+    "grade": "A",
+    "dir_5d": -0.83,
     "pulse": "bearish",
-    "pulse_strength": 58,
-    "turnover_sigma": -0.38,
+    "pulse_strength": 83,
+    "turnover_sigma": -0.37,
     "dcf_mos_pct": null,
-    "price": 112.98,
+    "price": 110.18,
     "price_stale": false,
     "factors": {
-     "value": 0.03,
+     "value": 0.06,
      "quality": 0.4,
      "growth": -0.74,
-     "momentum": 0.29,
+     "momentum": 0.32,
      "dcf": null,
-     "reversal": 1.43
+     "reversal": 1.6
+    }
+   },
+   {
+    "ticker": "COIN",
+    "sector": "Financials",
+    "composite": -0.14,
+    "percentile": 44.0,
+    "grade": "D",
+    "dir_5d": -0.83,
+    "pulse": "bearish",
+    "pulse_strength": 83,
+    "turnover_sigma": 3.63,
+    "dcf_mos_pct": -18.1,
+    "price": 119.93,
+    "price_stale": false,
+    "factors": {
+     "value": 0.64,
+     "quality": 0.0,
+     "growth": -1.49,
+     "momentum": -1.55,
+     "dcf": -0.4,
+     "reversal": 2.23
+    }
+   },
+   {
+    "ticker": "FCX",
+    "sector": "Materials",
+    "composite": 1.76,
+    "percentile": 96.0,
+    "grade": "A+",
+    "dir_5d": -0.82,
+    "pulse": "bearish",
+    "pulse_strength": 82,
+    "turnover_sigma": -0.02,
+    "dcf_mos_pct": null,
+    "price": 55.08,
+    "price_stale": false,
+    "factors": {
+     "value": 0.76,
+     "quality": 0.21,
+     "growth": -0.46,
+     "momentum": 0.68,
+     "dcf": null,
+     "reversal": 1.92
     }
    },
    {
     "ticker": "ALB",
     "sector": "Materials",
-    "composite": -0.66,
-    "percentile": 25.0,
+    "composite": -0.56,
+    "percentile": 29.0,
     "grade": "D",
-    "dir_5d": -0.52,
+    "dir_5d": -0.81,
     "pulse": "bearish",
-    "pulse_strength": 52,
-    "turnover_sigma": 1.35,
-    "dcf_mos_pct": 40.7,
-    "price": 93.51,
+    "pulse_strength": 81,
+    "turnover_sigma": 1.38,
+    "dcf_mos_pct": 54.0,
+    "price": 87.92,
     "price_stale": false,
     "factors": {
-     "value": -0.65,
+     "value": -0.62,
      "quality": -0.77,
      "growth": 0.48,
-     "momentum": -1.68,
-     "dcf": 0.23,
-     "reversal": 1.49
-    }
-   },
-   {
-    "ticker": "LEN",
-    "sector": "Consumer Discretionary",
-    "composite": -0.53,
-    "percentile": 30.0,
-    "grade": "D",
-    "dir_5d": -0.51,
-    "pulse": "bearish",
-    "pulse_strength": 51,
-    "turnover_sigma": 0.75,
-    "dcf_mos_pct": -107.9,
-    "price": 83.77,
-    "price_stale": false,
-    "factors": {
-     "value": 1.09,
-     "quality": -0.29,
-     "growth": 0.11,
-     "momentum": -1.24,
-     "dcf": -2.39,
-     "reversal": 0.78
+     "momentum": -1.61,
+     "dcf": 0.33,
+     "reversal": 1.56
     }
    }
   ],
@@ -919,64 +919,64 @@
     "composite": 2.75,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": 0.34,
-    "pulse": "bullish",
-    "pulse_strength": 34,
-    "turnover_sigma": 10.77,
-    "dcf_mos_pct": -23.0,
-    "price": 864.69,
+    "dir_5d": -0.7,
+    "pulse": "bearish",
+    "pulse_strength": 70,
+    "turnover_sigma": 11.07,
+    "dcf_mos_pct": -18.1,
+    "price": 808.7,
     "price_stale": false,
     "factors": {
-     "value": 0.95,
+     "value": 1.13,
      "quality": 0.95,
      "growth": 2.43,
-     "momentum": 2.37,
-     "dcf": -0.41,
-     "reversal": 1.11
+     "momentum": 2.33,
+     "dcf": -0.39,
+     "reversal": 2.35
     }
    },
    {
     "ticker": "LITE",
     "sector": "Information Technology",
-    "composite": -0.73,
-    "percentile": 23.0,
-    "grade": "F",
-    "dir_5d": 0.78,
-    "pulse": "bullish",
-    "pulse_strength": 78,
-    "turnover_sigma": 7.16,
-    "dcf_mos_pct": -92.8,
-    "price": 594.16,
+    "composite": 0.03,
+    "percentile": 51.0,
+    "grade": "C",
+    "dir_5d": -0.7,
+    "pulse": "bearish",
+    "pulse_strength": 70,
+    "turnover_sigma": 7.54,
+    "dcf_mos_pct": -92.2,
+    "price": 544.4,
     "price_stale": false,
     "factors": {
-     "value": -1.69,
+     "value": -1.66,
      "quality": 0.14,
      "growth": 0.88,
-     "momentum": 1.11,
-     "dcf": -1.76,
-     "reversal": 0.29
+     "momentum": 0.98,
+     "dcf": -1.69,
+     "reversal": 2.19
     }
    },
    {
     "ticker": "SMCI",
     "sector": "Information Technology",
-    "composite": 2.12,
-    "percentile": 98.0,
+    "composite": 2.23,
+    "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.62,
+    "dir_5d": -0.85,
     "pulse": "bearish",
-    "pulse_strength": 62,
-    "turnover_sigma": 7.13,
+    "pulse_strength": 85,
+    "turnover_sigma": 7.31,
     "dcf_mos_pct": null,
-    "price": 26.66,
+    "price": 24.97,
     "price_stale": false,
     "factors": {
-     "value": 0.32,
+     "value": 0.35,
      "quality": 0.76,
      "growth": 1.27,
-     "momentum": -0.31,
+     "momentum": -0.59,
      "dcf": null,
-     "reversal": 2.0
+     "reversal": 2.01
     }
    },
    {
@@ -985,42 +985,42 @@
     "composite": 3.09,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": -0.98,
+    "dir_5d": -0.99,
     "pulse": "bearish",
-    "pulse_strength": 98,
-    "turnover_sigma": 5.44,
+    "pulse_strength": 99,
+    "turnover_sigma": 5.34,
     "dcf_mos_pct": null,
-    "price": 9.27,
+    "price": 9.01,
     "price_stale": false,
     "factors": {
      "value": 2.74,
      "quality": 0.11,
      "growth": 1.58,
-     "momentum": 0.53,
+     "momentum": 0.64,
      "dcf": null,
-     "reversal": 2.41
+     "reversal": 2.63
     }
    },
    {
     "ticker": "COHR",
     "sector": "Information Technology",
-    "composite": -1.44,
-    "percentile": 8.0,
-    "grade": "F",
-    "dir_5d": 0.82,
-    "pulse": "bullish",
-    "pulse_strength": 82,
-    "turnover_sigma": 3.61,
+    "composite": -0.6,
+    "percentile": 28.0,
+    "grade": "D",
+    "dir_5d": -0.76,
+    "pulse": "bearish",
+    "pulse_strength": 76,
+    "turnover_sigma": 3.7,
     "dcf_mos_pct": null,
-    "price": 214.91,
+    "price": 203.01,
     "price_stale": false,
     "factors": {
-     "value": -1.52,
+     "value": -1.48,
      "quality": -0.56,
      "growth": 0.28,
-     "momentum": 0.18,
+     "momentum": -0.03,
      "dcf": null,
-     "reversal": -0.28
+     "reversal": 1.66
     }
    }
   ],
@@ -1029,80 +1029,80 @@
    "book": [
     {
      "ticker": "CTVA",
-     "weight_pct": 14.5
+     "weight_pct": 16.3
     },
     {
      "ticker": "SNDK",
-     "weight_pct": 4.9
-    },
-    {
-     "ticker": "SYF",
-     "weight_pct": 15.8
-    },
-    {
-     "ticker": "PYPL",
-     "weight_pct": 13.7
+     "weight_pct": 5.1
     },
     {
      "ticker": "MU",
-     "weight_pct": 6.7
+     "weight_pct": 6.6
+    },
+    {
+     "ticker": "PYPL",
+     "weight_pct": 14.1
+    },
+    {
+     "ticker": "SYF",
+     "weight_pct": 17.8
     },
     {
      "ticker": "INCY",
-     "weight_pct": 15.8
+     "weight_pct": 17.8
     },
     {
-     "ticker": "DVA",
-     "weight_pct": 13.8
+     "ticker": "SMCI",
+     "weight_pct": 5.8
     },
     {
      "ticker": "CTSH",
-     "weight_pct": 14.8
+     "weight_pct": 16.5
     }
    ],
    "days": 250,
-   "portfolio_vol_ann_pct": 19.4,
-   "sector_hhi": 0.27,
-   "var95_1d_parametric_usd": 18771,
-   "var95_1d_historical_usd": 18538,
-   "cvar95_1d_usd": 25692,
-   "stress_usd": -351991,
+   "portfolio_vol_ann_pct": 22.3,
+   "sector_hhi": 0.28,
+   "var95_1d_parametric_usd": 21974,
+   "var95_1d_historical_usd": 23210,
+   "cvar95_1d_usd": 32180,
+   "stress_usd": -412171,
    "tightest_correlations": [
     {
      "pair": [
       "SNDK",
       "MU"
      ],
-     "corr": 0.55
+     "corr": 0.57
+    },
+    {
+     "pair": [
+      "MU",
+      "SMCI"
+     ],
+     "corr": 0.33
+    },
+    {
+     "pair": [
+      "SNDK",
+      "SMCI"
+     ],
+     "corr": 0.28
     },
     {
      "pair": [
       "PYPL",
       "CTSH"
      ],
-     "corr": 0.23
-    },
-    {
-     "pair": [
-      "MU",
-      "CTSH"
-     ],
-     "corr": -0.19
-    },
-    {
-     "pair": [
-      "SYF",
-      "PYPL"
-     ],
-     "corr": 0.19
+     "corr": 0.24
     }
    ],
    "settings": "top 8 by composite, $1M, risk parity, shrinkage 0.35, 95% 1-day, equity -35% / rates -150bp"
   }
  },
  "arbitrage": {
-  "as_of": "2026-11-13T18:29:32+00:00",
-  "hours_old": 71.9,
+  "as_of": "2026-11-16T20:58:27+00:00",
+  "hours_old": 19.9,
   "top_pair_dislocations": [
    {
     "a": "PWR",
@@ -1223,12 +1223,12 @@
   }
  },
  "es_meanrev": {
-  "as_of": "2026-11-13",
-  "verdict": "NO-TRADE",
-  "rsi2": 32.4,
+  "as_of": "2026-11-16",
+  "verdict": "TRADE",
+  "rsi2": 9.77,
   "rsi2_threshold": 15,
-  "down3": false,
-  "close": 7561.0,
-  "generated_utc": "2026-11-14T02:56:19+00:00"
+  "down3": true,
+  "close": 7441.5,
+  "generated_utc": "2026-11-17T04:58:48+00:00"
  }
 }
