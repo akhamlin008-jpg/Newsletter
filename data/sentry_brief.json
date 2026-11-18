@@ -1,9 +1,9 @@
 {
- "generated_utc": "2026-11-17T17:34+00:00",
+ "generated_utc": "2026-11-18T16:22+00:00",
  "errors": {},
  "sentry": {
-  "as_of": "2026-11-16T20:58",
-  "hours_old": 20.6,
+  "as_of": "2026-11-17T19:39",
+  "hours_old": 20.7,
   "names": 503,
   "stale_prices": 6,
   "top20_composite": [
@@ -17,17 +17,17 @@
     "dir_5d": -0.99,
     "pulse": "bearish",
     "pulse_strength": 99,
-    "turnover_sigma": 5.34,
+    "turnover_sigma": 5.25,
     "dcf_mos_pct": null,
-    "price": 9.01,
+    "price": 8.82,
     "price_stale": false,
     "factors": {
      "value": 2.74,
      "quality": 0.11,
      "growth": 1.58,
-     "momentum": 0.64,
+     "momentum": 0.62,
      "dcf": null,
-     "reversal": 2.63
+     "reversal": 2.58
     }
    },
    {
@@ -37,20 +37,20 @@
     "composite": 2.75,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": -0.7,
+    "dir_5d": -0.68,
     "pulse": "bearish",
-    "pulse_strength": 70,
-    "turnover_sigma": 11.07,
-    "dcf_mos_pct": -18.1,
-    "price": 808.7,
+    "pulse_strength": 68,
+    "turnover_sigma": 11.12,
+    "dcf_mos_pct": -15.9,
+    "price": 788.67,
     "price_stale": false,
     "factors": {
      "value": 1.13,
      "quality": 0.95,
      "growth": 2.43,
-     "momentum": 2.33,
-     "dcf": -0.39,
-     "reversal": 2.35
+     "momentum": 2.38,
+     "dcf": -0.38,
+     "reversal": 2.48
     }
    },
    {
@@ -60,43 +60,43 @@
     "composite": 2.58,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": -0.19,
+    "dir_5d": -0.39,
     "pulse": "bearish",
-    "pulse_strength": 19,
-    "turnover_sigma": 1.96,
-    "dcf_mos_pct": -12.1,
-    "price": 718.85,
+    "pulse_strength": 39,
+    "turnover_sigma": 2.02,
+    "dcf_mos_pct": -9.1,
+    "price": 694.99,
     "price_stale": false,
     "factors": {
      "value": 0.69,
      "quality": 1.74,
      "growth": null,
-     "momentum": 2.22,
+     "momentum": 2.31,
      "dcf": -0.33,
-     "reversal": 1.01
+     "reversal": 1.26
     }
    },
    {
     "rank": 4,
-    "ticker": "PYPL",
-    "sector": "Financials",
+    "ticker": "CTSH",
+    "sector": "Information Technology",
     "composite": 2.46,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.21,
+    "dir_5d": -0.6,
     "pulse": "bearish",
-    "pulse_strength": 21,
-    "turnover_sigma": 0.23,
-    "dcf_mos_pct": 291.3,
-    "price": 58.77,
+    "pulse_strength": 60,
+    "turnover_sigma": 0.33,
+    "dcf_mos_pct": 251.9,
+    "price": 60.15,
     "price_stale": false,
     "factors": {
-     "value": 1.78,
-     "quality": 0.09,
-     "growth": 0.82,
-     "momentum": -0.17,
-     "dcf": 2.57,
-     "reversal": 0.25
+     "value": 1.41,
+     "quality": 0.52,
+     "growth": 0.01,
+     "momentum": 0.2,
+     "dcf": 1.85,
+     "reversal": 1.27
     }
    },
    {
@@ -106,43 +106,43 @@
     "composite": 2.37,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.2,
+    "dir_5d": -0.17,
     "pulse": "bearish",
-    "pulse_strength": 20,
-    "turnover_sigma": 0.12,
+    "pulse_strength": 17,
+    "turnover_sigma": 0.13,
     "dcf_mos_pct": null,
-    "price": 71.73,
+    "price": 70.5,
     "price_stale": false,
     "factors": {
      "value": 2.29,
      "quality": -0.03,
      "growth": 1.39,
-     "momentum": -0.34,
+     "momentum": -0.21,
      "dcf": null,
-     "reversal": 0.52
+     "reversal": 0.34
     }
    },
    {
     "rank": 6,
-    "ticker": "INCY",
-    "sector": "Health Care",
+    "ticker": "PYPL",
+    "sector": "Financials",
     "composite": 2.29,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.15,
+    "dir_5d": -0.02,
     "pulse": "bearish",
-    "pulse_strength": 15,
-    "turnover_sigma": -0.29,
-    "dcf_mos_pct": null,
-    "price": 120.09,
+    "pulse_strength": 2,
+    "turnover_sigma": 0.23,
+    "dcf_mos_pct": 292.8,
+    "price": 58.65,
     "price_stale": false,
     "factors": {
-     "value": 0.49,
-     "quality": 0.93,
-     "growth": 1.87,
-     "momentum": 0.68,
-     "dcf": null,
-     "reversal": 0.01
+     "value": 1.78,
+     "quality": 0.09,
+     "growth": 0.82,
+     "momentum": -0.19,
+     "dcf": 2.57,
+     "reversal": -0.33
     }
    },
    {
@@ -152,150 +152,127 @@
     "composite": 2.23,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.85,
+    "dir_5d": -0.88,
     "pulse": "bearish",
-    "pulse_strength": 85,
-    "turnover_sigma": 7.31,
+    "pulse_strength": 88,
+    "turnover_sigma": 7.51,
     "dcf_mos_pct": null,
-    "price": 24.97,
+    "price": 24.02,
     "price_stale": false,
     "factors": {
      "value": 0.35,
      "quality": 0.76,
      "growth": 1.27,
-     "momentum": -0.59,
+     "momentum": -0.55,
      "dcf": null,
-     "reversal": 2.01
+     "reversal": 2.08
     }
    },
    {
     "rank": 8,
-    "ticker": "CTSH",
+    "ticker": "NOW",
     "sector": "Information Technology",
     "composite": 2.17,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.16,
+    "dir_5d": -0.57,
     "pulse": "bearish",
-    "pulse_strength": 16,
-    "turnover_sigma": 0.3,
-    "dcf_mos_pct": 241.7,
-    "price": 62.24,
+    "pulse_strength": 57,
+    "turnover_sigma": 0.93,
+    "dcf_mos_pct": 145.9,
+    "price": 93.18,
     "price_stale": false,
     "factors": {
-     "value": 1.41,
-     "quality": 0.52,
-     "growth": 0.01,
-     "momentum": 0.04,
-     "dcf": 1.76,
-     "reversal": 0.59
+     "value": -0.78,
+     "quality": 1.02,
+     "growth": 1.67,
+     "momentum": 0.27,
+     "dcf": 1.06,
+     "reversal": 1.94
     }
    },
    {
     "rank": 9,
-    "ticker": "DVA",
+    "ticker": "INCY",
     "sector": "Health Care",
     "composite": 2.12,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.56,
+    "dir_5d": -0.05,
     "pulse": "bearish",
-    "pulse_strength": 56,
-    "turnover_sigma": 0.11,
+    "pulse_strength": 5,
+    "turnover_sigma": -0.3,
     "dcf_mos_pct": null,
-    "price": 173.84,
+    "price": 119.71,
     "price_stale": false,
     "factors": {
-     "value": 1.53,
-     "quality": -0.16,
-     "growth": 0.13,
-     "momentum": 1.15,
+     "value": 0.49,
+     "quality": 0.93,
+     "growth": 1.87,
+     "momentum": 0.73,
      "dcf": null,
-     "reversal": 1.22
+     "reversal": -0.41
     }
    },
    {
     "rank": 10,
-    "ticker": "NVR",
+    "ticker": "DECK",
     "sector": "Consumer Discretionary",
     "composite": 2.08,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.69,
+    "dir_5d": -0.72,
     "pulse": "bearish",
-    "pulse_strength": 69,
-    "turnover_sigma": 0.56,
-    "dcf_mos_pct": 194.0,
-    "price": 5798.01,
-    "price_stale": false,
-    "factors": {
-     "value": 1.15,
-     "quality": 0.47,
-     "growth": 0.91,
-     "momentum": -1.15,
-     "dcf": 1.41,
-     "reversal": 1.25
-    }
-   },
-   {
-    "rank": 11,
-    "ticker": "EXPE",
-    "sector": "Consumer Discretionary",
-    "composite": 2.04,
-    "percentile": 98.0,
-    "grade": "A+",
-    "dir_5d": -0.25,
-    "pulse": "bearish",
-    "pulse_strength": 25,
-    "turnover_sigma": 0.77,
-    "dcf_mos_pct": 151.6,
-    "price": 252.6,
-    "price_stale": false,
-    "factors": {
-     "value": 0.89,
-     "quality": 0.15,
-     "growth": 0.8,
-     "momentum": 0.59,
-     "dcf": 1.12,
-     "reversal": 0.92
-    }
-   },
-   {
-    "rank": 12,
-    "ticker": "DECK",
-    "sector": "Consumer Discretionary",
-    "composite": 2.0,
-    "percentile": 98.0,
-    "grade": "A+",
-    "dir_5d": -0.64,
-    "pulse": "bearish",
-    "pulse_strength": 64,
-    "turnover_sigma": 1.34,
+    "pulse_strength": 72,
+    "turnover_sigma": 1.37,
     "dcf_mos_pct": null,
-    "price": 83.57,
+    "price": 81.71,
     "price_stale": false,
     "factors": {
      "value": 1.47,
      "quality": 0.75,
      "growth": 0.62,
-     "momentum": -1.16,
+     "momentum": -1.11,
      "dcf": null,
-     "reversal": 1.16
+     "reversal": 1.45
     }
    },
    {
-    "rank": 13,
-    "ticker": "MRNA",
-    "sector": "Health Care",
-    "composite": 1.96,
+    "rank": 11,
+    "ticker": "CRM",
+    "sector": "Information Technology",
+    "composite": 2.04,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.97,
+    "dir_5d": -0.65,
     "pulse": "bearish",
-    "pulse_strength": 97,
-    "turnover_sigma": 2.54,
+    "pulse_strength": 64,
+    "turnover_sigma": 0.46,
     "dcf_mos_pct": null,
-    "price": 214.28,
+    "price": 197.12,
+    "price_stale": false,
+    "factors": {
+     "value": -0.03,
+     "quality": 1.13,
+     "growth": 0.69,
+     "momentum": 0.44,
+     "dcf": null,
+     "reversal": 1.61
+    }
+   },
+   {
+    "rank": 12,
+    "ticker": "MRNA",
+    "sector": "Health Care",
+    "composite": 2.0,
+    "percentile": 98.0,
+    "grade": "A+",
+    "dir_5d": -0.94,
+    "pulse": "bearish",
+    "pulse_strength": 94,
+    "turnover_sigma": 2.58,
+    "dcf_mos_pct": null,
+    "price": 206.79,
     "price_stale": false,
     "factors": {
      "value": -1.35,
@@ -303,390 +280,413 @@
      "growth": 3.07,
      "momentum": 2.92,
      "dcf": null,
-     "reversal": 1.66
+     "reversal": 1.89
+    }
+   },
+   {
+    "rank": 13,
+    "ticker": "EXPE",
+    "sector": "Consumer Discretionary",
+    "composite": 1.96,
+    "percentile": 98.0,
+    "grade": "A+",
+    "dir_5d": -0.3,
+    "pulse": "bearish",
+    "pulse_strength": 30,
+    "turnover_sigma": 0.79,
+    "dcf_mos_pct": 159.0,
+    "price": 245.8,
+    "price_stale": false,
+    "factors": {
+     "value": 0.89,
+     "quality": 0.15,
+     "growth": 0.8,
+     "momentum": 0.64,
+     "dcf": 1.14,
+     "reversal": 0.88
     }
    },
    {
     "rank": 14,
-    "ticker": "NOW",
-    "sector": "Information Technology",
+    "ticker": "DVA",
+    "sector": "Health Care",
     "composite": 1.93,
     "percentile": 97.0,
     "grade": "A+",
     "dir_5d": -0.32,
     "pulse": "bearish",
     "pulse_strength": 32,
-    "turnover_sigma": 0.81,
-    "dcf_mos_pct": 132.1,
-    "price": 99.38,
+    "turnover_sigma": 0.08,
+    "dcf_mos_pct": null,
+    "price": 173.27,
     "price_stale": false,
     "factors": {
-     "value": -0.78,
-     "quality": 1.02,
-     "growth": 1.67,
-     "momentum": 0.26,
-     "dcf": 0.96,
-     "reversal": 1.44
+     "value": 1.53,
+     "quality": -0.16,
+     "growth": 0.13,
+     "momentum": 1.14,
+     "dcf": null,
+     "reversal": 0.69
     }
    },
    {
     "rank": 15,
-    "ticker": "AMCR",
-    "sector": "Materials",
+    "ticker": "NVR",
+    "sector": "Consumer Discretionary",
     "composite": 1.9,
     "percentile": 97.0,
     "grade": "A+",
-    "dir_5d": -0.29,
+    "dir_5d": -0.51,
     "pulse": "bearish",
-    "pulse_strength": 29,
-    "turnover_sigma": -0.33,
-    "dcf_mos_pct": 167.4,
-    "price": 43.81,
+    "pulse_strength": 51,
+    "turnover_sigma": 0.58,
+    "dcf_mos_pct": 198.8,
+    "price": 5695.0,
+    "price_stale": false,
+    "factors": {
+     "value": 1.15,
+     "quality": 0.47,
+     "growth": 0.91,
+     "momentum": -1.23,
+     "dcf": 1.41,
+     "reversal": 0.86
+    }
+   },
+   {
+    "rank": 16,
+    "ticker": "EQT",
+    "sector": "Energy",
+    "composite": 1.87,
+    "percentile": 97.0,
+    "grade": "A+",
+    "dir_5d": -0.3,
+    "pulse": "bearish",
+    "pulse_strength": 30,
+    "turnover_sigma": 0.21,
+    "dcf_mos_pct": 286.4,
+    "price": 50.37,
+    "price_stale": false,
+    "factors": {
+     "value": 0.88,
+     "quality": 0.32,
+     "growth": 0.2,
+     "momentum": -0.28,
+     "dcf": 2.26,
+     "reversal": 0.64
+    }
+   },
+   {
+    "rank": 17,
+    "ticker": "AMCR",
+    "sector": "Materials",
+    "composite": 1.84,
+    "percentile": 97.0,
+    "grade": "A+",
+    "dir_5d": -0.34,
+    "pulse": "bearish",
+    "pulse_strength": 34,
+    "turnover_sigma": -0.35,
+    "dcf_mos_pct": 168.6,
+    "price": 43.6,
     "price_stale": false,
     "factors": {
      "value": 0.79,
      "quality": -0.07,
      "growth": 1.37,
      "momentum": 0.32,
-     "dcf": 1.19,
-     "reversal": 0.57
+     "dcf": 1.17,
+     "reversal": 0.5
     }
    },
    {
-    "rank": 16,
+    "rank": 18,
+    "ticker": "ADBE",
+    "sector": "Information Technology",
+    "composite": 1.81,
+    "percentile": 96.0,
+    "grade": "A+",
+    "dir_5d": 0.02,
+    "pulse": "bullish",
+    "pulse_strength": 2,
+    "turnover_sigma": 0.14,
+    "dcf_mos_pct": null,
+    "price": 237.17,
+    "price_stale": false,
+    "factors": {
+     "value": 1.06,
+     "quality": 1.23,
+     "growth": 0.83,
+     "momentum": -0.7,
+     "dcf": null,
+     "reversal": -0.01
+    }
+   },
+   {
+    "rank": 19,
     "ticker": "FTNT",
     "sector": "Information Technology",
-    "composite": 1.87,
-    "percentile": 97.0,
+    "composite": 1.79,
+    "percentile": 96.0,
     "grade": "A+",
-    "dir_5d": 0.06,
+    "dir_5d": 0.04,
     "pulse": "bullish",
-    "pulse_strength": 6,
-    "turnover_sigma": -0.25,
+    "pulse_strength": 4,
+    "turnover_sigma": -0.27,
     "dcf_mos_pct": null,
-    "price": 123.18,
+    "price": 124.07,
     "price_stale": false,
     "factors": {
      "value": -0.73,
      "quality": 1.04,
      "growth": 0.63,
-     "momentum": 2.05,
+     "momentum": 2.08,
      "dcf": null,
-     "reversal": 0.8
+     "reversal": 0.57
     }
    },
    {
-    "rank": 17,
-    "ticker": "PSX",
-    "sector": "Energy",
-    "composite": 1.84,
-    "percentile": 97.0,
-    "grade": "A+",
-    "dir_5d": 0.3,
-    "pulse": "bullish",
-    "pulse_strength": 30,
-    "turnover_sigma": -0.32,
-    "dcf_mos_pct": null,
-    "price": 260.74,
-    "price_stale": false,
-    "factors": {
-     "value": 1.02,
-     "quality": 0.12,
-     "growth": 0.08,
-     "momentum": 1.96,
-     "dcf": null,
-     "reversal": 0.01
-    }
-   },
-   {
-    "rank": 18,
+    "rank": 20,
     "ticker": "META",
     "sector": "Communication Services",
-    "composite": 1.81,
+    "composite": 1.76,
     "percentile": 96.0,
     "grade": "A+",
-    "dir_5d": -0.24,
+    "dir_5d": -0.33,
     "pulse": "bearish",
-    "pulse_strength": 24,
+    "pulse_strength": 33,
     "turnover_sigma": -0.2,
-    "dcf_mos_pct": 31.5,
-    "price": 625.88,
+    "dcf_mos_pct": 33.0,
+    "price": 619.49,
     "price_stale": false,
     "factors": {
      "value": -0.32,
      "quality": 1.3,
      "growth": 1.59,
-     "momentum": -0.17,
-     "dcf": 0.13,
-     "reversal": 0.87
-    }
-   },
-   {
-    "rank": 19,
-    "ticker": "DXCM",
-    "sector": "Health Care",
-    "composite": 1.79,
-    "percentile": 96.0,
-    "grade": "A+",
-    "dir_5d": 0.07,
-    "pulse": "bullish",
-    "pulse_strength": 7,
-    "turnover_sigma": 0.06,
-    "dcf_mos_pct": 7.0,
-    "price": 81.61,
-    "price_stale": false,
-    "factors": {
-     "value": -0.8,
-     "quality": 1.64,
-     "growth": 1.53,
-     "momentum": 1.06,
-     "dcf": -0.1,
-     "reversal": 0.22
-    }
-   },
-   {
-    "rank": 20,
-    "ticker": "FCX",
-    "sector": "Materials",
-    "composite": 1.76,
-    "percentile": 96.0,
-    "grade": "A+",
-    "dir_5d": -0.82,
-    "pulse": "bearish",
-    "pulse_strength": 82,
-    "turnover_sigma": -0.02,
-    "dcf_mos_pct": null,
-    "price": 55.08,
-    "price_stale": false,
-    "factors": {
-     "value": 0.76,
-     "quality": 0.21,
-     "growth": -0.46,
-     "momentum": 0.68,
-     "dcf": null,
-     "reversal": 1.92
+     "momentum": -0.09,
+     "dcf": 0.12,
+     "reversal": 0.85
     }
    }
   ],
   "pulse_top_bulls": [
    {
-    "ticker": "CHTR",
-    "sector": "Communication Services",
-    "composite": -0.16,
-    "percentile": 44.0,
-    "grade": "D",
-    "dir_5d": 0.9,
-    "pulse": "bullish",
-    "pulse_strength": 90,
-    "turnover_sigma": 1.15,
-    "dcf_mos_pct": null,
-    "price": 139.0,
-    "price_stale": false,
-    "factors": {
-     "value": 2.03,
-     "quality": -0.04,
-     "growth": 1.66,
-     "momentum": -2.83,
-     "dcf": null,
-     "reversal": -2.69
-    }
-   },
-   {
-    "ticker": "CNC",
-    "sector": "Health Care",
-    "composite": -0.39,
-    "percentile": 35.0,
-    "grade": "D",
-    "dir_5d": 0.73,
-    "pulse": "bullish",
-    "pulse_strength": 73,
-    "turnover_sigma": -0.19,
-    "dcf_mos_pct": null,
-    "price": 74.92,
-    "price_stale": false,
-    "factors": {
-     "value": -0.17,
-     "quality": -1.23,
-     "growth": 1.27,
-     "momentum": 1.78,
-     "dcf": null,
-     "reversal": -1.68
-    }
-   },
-   {
-    "ticker": "HUM",
-    "sector": "Health Care",
-    "composite": -1.43,
-    "percentile": 8.0,
-    "grade": "F",
-    "dir_5d": 0.72,
-    "pulse": "bullish",
-    "pulse_strength": 72,
-    "turnover_sigma": -0.07,
-    "dcf_mos_pct": -92.6,
-    "price": 461.62,
-    "price_stale": false,
-    "factors": {
-     "value": 0.02,
-     "quality": -0.82,
-     "growth": -0.51,
-     "momentum": 1.75,
-     "dcf": -1.76,
-     "reversal": -1.83
-    }
-   },
-   {
-    "ticker": "CBOE",
-    "sector": "Financials",
-    "composite": 0.18,
-    "percentile": 57.0,
-    "grade": "C",
-    "dir_5d": 0.61,
-    "pulse": "bullish",
-    "pulse_strength": 61,
-    "turnover_sigma": -0.17,
-    "dcf_mos_pct": null,
-    "price": 377.59,
-    "price_stale": false,
-    "factors": {
-     "value": -0.3,
-     "quality": 1.04,
-     "growth": 0.85,
-     "momentum": 0.46,
-     "dcf": null,
-     "reversal": -2.15
-    }
-   },
-   {
-    "ticker": "ELV",
-    "sector": "Health Care",
-    "composite": 0.41,
-    "percentile": 66.0,
-    "grade": "B",
-    "dir_5d": 0.58,
-    "pulse": "bullish",
-    "pulse_strength": 58,
-    "turnover_sigma": -0.54,
-    "dcf_mos_pct": 117.2,
-    "price": 446.16,
-    "price_stale": false,
-    "factors": {
-     "value": 0.78,
-     "quality": -0.58,
-     "growth": 0.33,
-     "momentum": 0.96,
-     "dcf": 0.79,
-     "reversal": -1.18
-    }
-   },
-   {
-    "ticker": "TRGP",
-    "sector": "Energy",
-    "composite": 0.01,
-    "percentile": 51.0,
-    "grade": "C",
-    "dir_5d": 0.58,
-    "pulse": "bullish",
-    "pulse_strength": 58,
-    "turnover_sigma": -0.53,
-    "dcf_mos_pct": -73.7,
-    "price": 291.73,
-    "price_stale": false,
-    "factors": {
-     "value": -0.2,
-     "quality": 0.1,
-     "growth": 0.88,
-     "momentum": 1.45,
-     "dcf": -1.28,
-     "reversal": -0.88
-    }
-   },
-   {
-    "ticker": "ALL",
-    "sector": "Financials",
-    "composite": 0.61,
-    "percentile": 73.0,
-    "grade": "B",
-    "dir_5d": 0.57,
-    "pulse": "bullish",
-    "pulse_strength": 57,
-    "turnover_sigma": -0.39,
-    "dcf_mos_pct": null,
-    "price": 270.36,
-    "price_stale": false,
-    "factors": {
-     "value": 1.41,
-     "quality": 0.22,
-     "growth": -0.32,
-     "momentum": 0.65,
-     "dcf": null,
-     "reversal": -1.48
-    }
-   },
-   {
     "ticker": "TSN",
     "sector": "Consumer Staples",
-    "composite": -1.1,
-    "percentile": 14.0,
+    "composite": -1.31,
+    "percentile": 9.0,
     "grade": "F",
-    "dir_5d": 0.56,
+    "dir_5d": 0.58,
     "pulse": "bullish",
-    "pulse_strength": 56,
-    "turnover_sigma": -0.21,
+    "pulse_strength": 58,
+    "turnover_sigma": -0.22,
     "dcf_mos_pct": null,
-    "price": 63.68,
+    "price": 64.32,
     "price_stale": false,
     "factors": {
      "value": 0.66,
      "quality": -0.5,
      "growth": -0.21,
-     "momentum": -0.54,
+     "momentum": -0.52,
      "dcf": null,
-     "reversal": -1.81
+     "reversal": -2.44
+    }
+   },
+   {
+    "ticker": "CHRW",
+    "sector": "Industrials",
+    "composite": -0.5,
+    "percentile": 31.0,
+    "grade": "D",
+    "dir_5d": 0.58,
+    "pulse": "bullish",
+    "pulse_strength": 58,
+    "turnover_sigma": 0.45,
+    "dcf_mos_pct": 59.1,
+    "price": 137.5,
+    "price_stale": false,
+    "factors": {
+     "value": 0.24,
+     "quality": 0.31,
+     "growth": -0.55,
+     "momentum": -0.71,
+     "dcf": 0.34,
+     "reversal": -1.14
+    }
+   },
+   {
+    "ticker": "DPZ",
+    "sector": "Consumer Discretionary",
+    "composite": 0.1,
+    "percentile": 54.0,
+    "grade": "C",
+    "dir_5d": 0.52,
+    "pulse": "bullish",
+    "pulse_strength": 52,
+    "turnover_sigma": 1.07,
+    "dcf_mos_pct": null,
+    "price": 348.89,
+    "price_stale": false,
+    "factors": {
+     "value": 0.79,
+     "quality": 0.58,
+     "growth": 1.04,
+     "momentum": -1.22,
+     "dcf": null,
+     "reversal": -1.97
+    }
+   },
+   {
+    "ticker": "TPL",
+    "sector": "Energy",
+    "composite": -0.63,
+    "percentile": 26.0,
+    "grade": "D",
+    "dir_5d": 0.5,
+    "pulse": "bullish",
+    "pulse_strength": 50,
+    "turnover_sigma": -0.46,
+    "dcf_mos_pct": -22.5,
+    "price": 289.69,
+    "price_stale": false,
+    "factors": {
+     "value": -0.71,
+     "quality": 0.99,
+     "growth": -0.29,
+     "momentum": -0.65,
+     "dcf": -0.48,
+     "reversal": -0.52
+    }
+   },
+   {
+    "ticker": "COST",
+    "sector": "Consumer Staples",
+    "composite": 0.21,
+    "percentile": 58.0,
+    "grade": "C",
+    "dir_5d": 0.43,
+    "pulse": "bullish",
+    "pulse_strength": 43,
+    "turnover_sigma": -0.64,
+    "dcf_mos_pct": 125.3,
+    "price": 1115.19,
+    "price_stale": false,
+    "factors": {
+     "value": -0.34,
+     "quality": 0.58,
+     "growth": 0.97,
+     "momentum": -0.07,
+     "dcf": 0.87,
+     "reversal": -1.73
+    }
+   },
+   {
+    "ticker": "REGN",
+    "sector": "Health Care",
+    "composite": -0.05,
+    "percentile": 48.0,
+    "grade": "C",
+    "dir_5d": 0.41,
+    "pulse": "bullish",
+    "pulse_strength": 41,
+    "turnover_sigma": -0.41,
+    "dcf_mos_pct": null,
+    "price": 956.27,
+    "price_stale": false,
+    "factors": {
+     "value": -0.45,
+     "quality": 0.69,
+     "growth": 1.11,
+     "momentum": 0.57,
+     "dcf": null,
+     "reversal": -2.2
+    }
+   },
+   {
+    "ticker": "SWKS",
+    "sector": "Information Technology",
+    "composite": -1.87,
+    "percentile": 3.0,
+    "grade": "F",
+    "dir_5d": 0.4,
+    "pulse": "bullish",
+    "pulse_strength": 40,
+    "turnover_sigma": 1.45,
+    "dcf_mos_pct": -91.9,
+    "price": 86.22,
+    "price_stale": false,
+    "factors": {
+     "value": -0.87,
+     "quality": -0.45,
+     "growth": -0.87,
+     "momentum": 0.77,
+     "dcf": -1.65,
+     "reversal": -1.39
+    }
+   },
+   {
+    "ticker": "KHC",
+    "sector": "Consumer Staples",
+    "composite": -1.79,
+    "percentile": 4.0,
+    "grade": "F",
+    "dir_5d": 0.39,
+    "pulse": "bullish",
+    "pulse_strength": 38,
+    "turnover_sigma": 0.29,
+    "dcf_mos_pct": null,
+    "price": 25.23,
+    "price_stale": false,
+    "factors": {
+     "value": -0.44,
+     "quality": -1.2,
+     "growth": -0.32,
+     "momentum": -0.03,
+     "dcf": null,
+     "reversal": -1.46
+    }
+   },
+   {
+    "ticker": "CHTR",
+    "sector": "Communication Services",
+    "composite": 0.07,
+    "percentile": 53.0,
+    "grade": "C",
+    "dir_5d": 0.38,
+    "pulse": "bullish",
+    "pulse_strength": 38,
+    "turnover_sigma": 1.1,
+    "dcf_mos_pct": null,
+    "price": 139.49,
+    "price_stale": false,
+    "factors": {
+     "value": 2.03,
+     "quality": -0.04,
+     "growth": 1.66,
+     "momentum": -2.77,
+     "dcf": null,
+     "reversal": -2.29
     }
    },
    {
     "ticker": "APA",
     "sector": "Energy",
-    "composite": 1.74,
+    "composite": 1.72,
     "percentile": 96.0,
     "grade": "A+",
-    "dir_5d": 0.54,
+    "dir_5d": 0.38,
     "pulse": "bullish",
-    "pulse_strength": 54,
-    "turnover_sigma": 0.48,
+    "pulse_strength": 38,
+    "turnover_sigma": 0.46,
     "dcf_mos_pct": null,
-    "price": 47.26,
+    "price": 46.94,
     "price_stale": false,
     "factors": {
      "value": 1.95,
      "quality": 1.01,
      "growth": -1.79,
-     "momentum": 1.7,
+     "momentum": 1.71,
      "dcf": null,
-     "reversal": -0.69
-    }
-   },
-   {
-    "ticker": "VRSK",
-    "sector": "Industrials",
-    "composite": -0.81,
-    "percentile": 21.0,
-    "grade": "F",
-    "dir_5d": 0.54,
-    "pulse": "bullish",
-    "pulse_strength": 54,
-    "turnover_sigma": -0.25,
-    "dcf_mos_pct": null,
-    "price": 212.84,
-    "price_stale": false,
-    "factors": {
-     "value": -0.1,
-     "quality": 0.48,
-     "growth": -0.35,
-     "momentum": -0.38,
-     "dcf": null,
-     "reversal": -1.54
+     "reversal": -0.64
     }
    }
   ],
@@ -700,31 +700,31 @@
     "dir_5d": -0.99,
     "pulse": "bearish",
     "pulse_strength": 99,
-    "turnover_sigma": 5.34,
+    "turnover_sigma": 5.25,
     "dcf_mos_pct": null,
-    "price": 9.01,
+    "price": 8.82,
     "price_stale": false,
     "factors": {
      "value": 2.74,
      "quality": 0.11,
      "growth": 1.58,
-     "momentum": 0.64,
+     "momentum": 0.62,
      "dcf": null,
-     "reversal": 2.63
+     "reversal": 2.58
     }
    },
    {
     "ticker": "MRNA",
     "sector": "Health Care",
-    "composite": 1.96,
+    "composite": 2.0,
     "percentile": 98.0,
     "grade": "A+",
-    "dir_5d": -0.97,
+    "dir_5d": -0.94,
     "pulse": "bearish",
-    "pulse_strength": 97,
-    "turnover_sigma": 2.54,
+    "pulse_strength": 94,
+    "turnover_sigma": 2.58,
     "dcf_mos_pct": null,
-    "price": 214.28,
+    "price": 206.79,
     "price_stale": false,
     "factors": {
      "value": -1.35,
@@ -732,73 +732,73 @@
      "growth": 3.07,
      "momentum": 2.92,
      "dcf": null,
-     "reversal": 1.66
-    }
-   },
-   {
-    "ticker": "FSLR",
-    "sector": "Information Technology",
-    "composite": 1.42,
-    "percentile": 92.0,
-    "grade": "A+",
-    "dir_5d": -0.91,
-    "pulse": "bearish",
-    "pulse_strength": 91,
-    "turnover_sigma": 1.57,
-    "dcf_mos_pct": 71.3,
-    "price": 162.42,
-    "price_stale": false,
-    "factors": {
-     "value": 1.05,
-     "quality": 0.61,
-     "growth": -0.41,
-     "momentum": -1.08,
-     "dcf": 0.43,
-     "reversal": 1.74
+     "reversal": 1.89
     }
    },
    {
     "ticker": "HOOD",
     "sector": "Financials",
-    "composite": 0.5,
-    "percentile": 69.0,
+    "composite": 0.51,
+    "percentile": 70.0,
     "grade": "B",
-    "dir_5d": -0.87,
+    "dir_5d": -0.92,
     "pulse": "bearish",
-    "pulse_strength": 87,
-    "turnover_sigma": 2.14,
+    "pulse_strength": 92,
+    "turnover_sigma": 2.25,
     "dcf_mos_pct": null,
-    "price": 72.08,
+    "price": 68.49,
     "price_stale": false,
     "factors": {
      "value": -0.49,
      "quality": -0.32,
      "growth": 0.6,
-     "momentum": -0.46,
+     "momentum": -0.51,
      "dcf": null,
-     "reversal": 2.19
+     "reversal": 2.27
     }
    },
    {
-    "ticker": "NVDA",
+    "ticker": "FSLR",
     "sector": "Information Technology",
-    "composite": 1.66,
-    "percentile": 95.0,
+    "composite": 1.38,
+    "percentile": 92.0,
     "grade": "A+",
-    "dir_5d": -0.86,
+    "dir_5d": -0.91,
     "pulse": "bearish",
-    "pulse_strength": 86,
-    "turnover_sigma": -0.26,
-    "dcf_mos_pct": -61.9,
-    "price": 155.85,
+    "pulse_strength": 91,
+    "turnover_sigma": 1.71,
+    "dcf_mos_pct": 81.0,
+    "price": 153.26,
     "price_stale": false,
     "factors": {
-     "value": -0.48,
-     "quality": 0.96,
-     "growth": 1.46,
-     "momentum": 0.32,
-     "dcf": -1.0,
-     "reversal": 2.18
+     "value": 1.05,
+     "quality": 0.61,
+     "growth": -0.41,
+     "momentum": -1.06,
+     "dcf": 0.51,
+     "reversal": 1.79
+    }
+   },
+   {
+    "ticker": "GPN",
+    "sector": "Financials",
+    "composite": 1.7,
+    "percentile": 96.0,
+    "grade": "A+",
+    "dir_5d": -0.89,
+    "pulse": "bearish",
+    "pulse_strength": 89,
+    "turnover_sigma": -0.01,
+    "dcf_mos_pct": 220.7,
+    "price": 87.25,
+    "price_stale": false,
+    "factors": {
+     "value": 0.59,
+     "quality": -0.17,
+     "growth": 0.36,
+     "momentum": 0.26,
+     "dcf": 1.62,
+     "reversal": 1.2
     }
    },
    {
@@ -807,108 +807,108 @@
     "composite": 2.23,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.85,
+    "dir_5d": -0.88,
     "pulse": "bearish",
-    "pulse_strength": 85,
-    "turnover_sigma": 7.31,
+    "pulse_strength": 88,
+    "turnover_sigma": 7.51,
     "dcf_mos_pct": null,
-    "price": 24.97,
+    "price": 24.02,
     "price_stale": false,
     "factors": {
      "value": 0.35,
      "quality": 0.76,
      "growth": 1.27,
-     "momentum": -0.59,
+     "momentum": -0.55,
      "dcf": null,
-     "reversal": 2.01
-    }
-   },
-   {
-    "ticker": "NEM",
-    "sector": "Materials",
-    "composite": 0.89,
-    "percentile": 81.0,
-    "grade": "A",
-    "dir_5d": -0.83,
-    "pulse": "bearish",
-    "pulse_strength": 83,
-    "turnover_sigma": -0.37,
-    "dcf_mos_pct": null,
-    "price": 110.18,
-    "price_stale": false,
-    "factors": {
-     "value": 0.06,
-     "quality": 0.4,
-     "growth": -0.74,
-     "momentum": 0.32,
-     "dcf": null,
-     "reversal": 1.6
+     "reversal": 2.08
     }
    },
    {
     "ticker": "COIN",
     "sector": "Financials",
-    "composite": -0.14,
-    "percentile": 44.0,
+    "composite": -0.2,
+    "percentile": 42.0,
     "grade": "D",
     "dir_5d": -0.83,
     "pulse": "bearish",
     "pulse_strength": 83,
-    "turnover_sigma": 3.63,
-    "dcf_mos_pct": -18.1,
-    "price": 119.93,
+    "turnover_sigma": 3.66,
+    "dcf_mos_pct": -15.3,
+    "price": 116.28,
     "price_stale": false,
     "factors": {
      "value": 0.64,
      "quality": 0.0,
      "growth": -1.49,
-     "momentum": -1.55,
-     "dcf": -0.4,
-     "reversal": 2.23
+     "momentum": -1.66,
+     "dcf": -0.37,
+     "reversal": 2.2
     }
    },
    {
-    "ticker": "FCX",
-    "sector": "Materials",
-    "composite": 1.76,
-    "percentile": 96.0,
-    "grade": "A+",
-    "dir_5d": -0.82,
+    "ticker": "UAL",
+    "sector": "Industrials",
+    "composite": 0.63,
+    "percentile": 74.0,
+    "grade": "B",
+    "dir_5d": -0.8,
     "pulse": "bearish",
-    "pulse_strength": 82,
-    "turnover_sigma": -0.02,
+    "pulse_strength": 80,
+    "turnover_sigma": 0.31,
     "dcf_mos_pct": null,
-    "price": 55.08,
+    "price": 107.47,
     "price_stale": false,
     "factors": {
-     "value": 0.76,
-     "quality": 0.21,
-     "growth": -0.46,
-     "momentum": 0.68,
+     "value": 1.04,
+     "quality": 0.15,
+     "growth": -0.54,
+     "momentum": -0.38,
      "dcf": null,
-     "reversal": 1.92
+     "reversal": 0.52
     }
    },
    {
-    "ticker": "ALB",
+    "ticker": "MOS",
     "sector": "Materials",
-    "composite": -0.56,
-    "percentile": 29.0,
-    "grade": "D",
-    "dir_5d": -0.81,
+    "composite": -1.38,
+    "percentile": 8.0,
+    "grade": "F",
+    "dir_5d": -0.75,
     "pulse": "bearish",
-    "pulse_strength": 81,
-    "turnover_sigma": 1.38,
-    "dcf_mos_pct": 54.0,
-    "price": 87.92,
+    "pulse_strength": 75,
+    "turnover_sigma": 1.85,
+    "dcf_mos_pct": null,
+    "price": 20.75,
     "price_stale": false,
     "factors": {
-     "value": -0.62,
-     "quality": -0.77,
-     "growth": 0.48,
-     "momentum": -1.61,
-     "dcf": 0.33,
-     "reversal": 1.56
+     "value": 0.45,
+     "quality": -0.68,
+     "growth": -1.34,
+     "momentum": -1.57,
+     "dcf": null,
+     "reversal": 0.3
+    }
+   },
+   {
+    "ticker": "NVDA",
+    "sector": "Information Technology",
+    "composite": 1.57,
+    "percentile": 94.0,
+    "grade": "A+",
+    "dir_5d": -0.72,
+    "pulse": "bearish",
+    "pulse_strength": 72,
+    "turnover_sigma": -0.25,
+    "dcf_mos_pct": -61.3,
+    "price": 153.46,
+    "price_stale": false,
+    "factors": {
+     "value": -0.48,
+     "quality": 0.96,
+     "growth": 1.46,
+     "momentum": 0.39,
+     "dcf": -1.0,
+     "reversal": 2.03
     }
    }
   ],
@@ -919,42 +919,20 @@
     "composite": 2.75,
     "percentile": 100.0,
     "grade": "A+",
-    "dir_5d": -0.7,
+    "dir_5d": -0.68,
     "pulse": "bearish",
-    "pulse_strength": 70,
-    "turnover_sigma": 11.07,
-    "dcf_mos_pct": -18.1,
-    "price": 808.7,
+    "pulse_strength": 68,
+    "turnover_sigma": 11.12,
+    "dcf_mos_pct": -15.9,
+    "price": 788.67,
     "price_stale": false,
     "factors": {
      "value": 1.13,
      "quality": 0.95,
      "growth": 2.43,
-     "momentum": 2.33,
-     "dcf": -0.39,
-     "reversal": 2.35
-    }
-   },
-   {
-    "ticker": "LITE",
-    "sector": "Information Technology",
-    "composite": 0.03,
-    "percentile": 51.0,
-    "grade": "C",
-    "dir_5d": -0.7,
-    "pulse": "bearish",
-    "pulse_strength": 70,
-    "turnover_sigma": 7.54,
-    "dcf_mos_pct": -92.2,
-    "price": 544.4,
-    "price_stale": false,
-    "factors": {
-     "value": -1.66,
-     "quality": 0.14,
-     "growth": 0.88,
-     "momentum": 0.98,
-     "dcf": -1.69,
-     "reversal": 2.19
+     "momentum": 2.38,
+     "dcf": -0.38,
+     "reversal": 2.48
     }
    },
    {
@@ -963,20 +941,42 @@
     "composite": 2.23,
     "percentile": 99.0,
     "grade": "A+",
-    "dir_5d": -0.85,
+    "dir_5d": -0.88,
     "pulse": "bearish",
-    "pulse_strength": 85,
-    "turnover_sigma": 7.31,
+    "pulse_strength": 88,
+    "turnover_sigma": 7.51,
     "dcf_mos_pct": null,
-    "price": 24.97,
+    "price": 24.02,
     "price_stale": false,
     "factors": {
      "value": 0.35,
      "quality": 0.76,
      "growth": 1.27,
-     "momentum": -0.59,
+     "momentum": -0.55,
      "dcf": null,
-     "reversal": 2.01
+     "reversal": 2.08
+    }
+   },
+   {
+    "ticker": "LITE",
+    "sector": "Information Technology",
+    "composite": -0.13,
+    "percentile": 45.0,
+    "grade": "D",
+    "dir_5d": -0.53,
+    "pulse": "bearish",
+    "pulse_strength": 53,
+    "turnover_sigma": 7.33,
+    "dcf_mos_pct": -92.2,
+    "price": 550.71,
+    "price_stale": false,
+    "factors": {
+     "value": -1.66,
+     "quality": 0.14,
+     "growth": 0.88,
+     "momentum": 1.02,
+     "dcf": -1.72,
+     "reversal": 1.82
     }
    },
    {
@@ -988,39 +988,39 @@
     "dir_5d": -0.99,
     "pulse": "bearish",
     "pulse_strength": 99,
-    "turnover_sigma": 5.34,
+    "turnover_sigma": 5.25,
     "dcf_mos_pct": null,
-    "price": 9.01,
+    "price": 8.82,
     "price_stale": false,
     "factors": {
      "value": 2.74,
      "quality": 0.11,
      "growth": 1.58,
-     "momentum": 0.64,
+     "momentum": 0.62,
      "dcf": null,
-     "reversal": 2.63
+     "reversal": 2.58
     }
    },
    {
-    "ticker": "COHR",
-    "sector": "Information Technology",
-    "composite": -0.6,
-    "percentile": 28.0,
+    "ticker": "COIN",
+    "sector": "Financials",
+    "composite": -0.2,
+    "percentile": 42.0,
     "grade": "D",
-    "dir_5d": -0.76,
+    "dir_5d": -0.83,
     "pulse": "bearish",
-    "pulse_strength": 76,
-    "turnover_sigma": 3.7,
-    "dcf_mos_pct": null,
-    "price": 203.01,
+    "pulse_strength": 83,
+    "turnover_sigma": 3.66,
+    "dcf_mos_pct": -15.3,
+    "price": 116.28,
     "price_stale": false,
     "factors": {
-     "value": -1.48,
-     "quality": -0.56,
-     "growth": 0.28,
-     "momentum": -0.03,
-     "dcf": null,
-     "reversal": 1.66
+     "value": 0.64,
+     "quality": 0.0,
+     "growth": -1.49,
+     "momentum": -1.66,
+     "dcf": -0.37,
+     "reversal": 2.2
     }
    }
   ],
@@ -1029,44 +1029,44 @@
    "book": [
     {
      "ticker": "CTVA",
-     "weight_pct": 16.3
+     "weight_pct": 18.4
     },
     {
      "ticker": "SNDK",
-     "weight_pct": 5.1
+     "weight_pct": 5.8
     },
     {
      "ticker": "MU",
-     "weight_pct": 6.6
-    },
-    {
-     "ticker": "PYPL",
-     "weight_pct": 14.1
-    },
-    {
-     "ticker": "SYF",
-     "weight_pct": 17.8
-    },
-    {
-     "ticker": "INCY",
-     "weight_pct": 17.8
-    },
-    {
-     "ticker": "SMCI",
-     "weight_pct": 5.8
+     "weight_pct": 7.5
     },
     {
      "ticker": "CTSH",
      "weight_pct": 16.5
+    },
+    {
+     "ticker": "SYF",
+     "weight_pct": 19.9
+    },
+    {
+     "ticker": "PYPL",
+     "weight_pct": 15.4
+    },
+    {
+     "ticker": "SMCI",
+     "weight_pct": 6.4
+    },
+    {
+     "ticker": "NOW",
+     "weight_pct": 10.1
     }
    ],
    "days": 250,
-   "portfolio_vol_ann_pct": 22.3,
-   "sector_hhi": 0.28,
-   "var95_1d_parametric_usd": 21974,
-   "var95_1d_historical_usd": 23210,
-   "cvar95_1d_usd": 32180,
-   "stress_usd": -412171,
+   "portfolio_vol_ann_pct": 24.7,
+   "sector_hhi": 0.37,
+   "var95_1d_parametric_usd": 24684,
+   "var95_1d_historical_usd": 26878,
+   "cvar95_1d_usd": 38642,
+   "stress_usd": -465346,
    "tightest_correlations": [
     {
      "pair": [
@@ -1074,6 +1074,13 @@
       "MU"
      ],
      "corr": 0.57
+    },
+    {
+     "pair": [
+      "CTSH",
+      "NOW"
+     ],
+     "corr": 0.39
     },
     {
      "pair": [
@@ -1088,21 +1095,14 @@
       "SMCI"
      ],
      "corr": 0.28
-    },
-    {
-     "pair": [
-      "PYPL",
-      "CTSH"
-     ],
-     "corr": 0.24
     }
    ],
    "settings": "top 8 by composite, $1M, risk parity, shrinkage 0.35, 95% 1-day, equity -35% / rates -150bp"
   }
  },
  "arbitrage": {
-  "as_of": "2026-11-16T20:58:27+00:00",
-  "hours_old": 20.6,
+  "as_of": "2026-11-17T19:39:20+00:00",
+  "hours_old": 20.7,
   "top_pair_dislocations": [
    {
     "a": "PWR",
@@ -1223,12 +1223,12 @@
   }
  },
  "es_meanrev": {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-17",
   "verdict": "TRADE",
-  "rsi2": 9.77,
+  "rsi2": 6.0,
   "rsi2_threshold": 15,
   "down3": true,
-  "close": 7441.5,
-  "generated_utc": "2026-11-17T04:58:48+00:00"
+  "close": 7381.5,
+  "generated_utc": "2026-11-18T04:03:47+00:00"
  }
 }
